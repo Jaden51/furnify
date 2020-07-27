@@ -1,4 +1,7 @@
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/storage';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCDOi0t0m0y5HujtISqNVG9N2kiOJU6kFs",
@@ -13,11 +16,11 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const database = firebase.database();
-
 const storage = firebase.storage();
 
-export { storage, database, firebase as default }
+export { storage, database, googleAuthProvider, firebase }
 
 // database.ref('furniture').push({
 //     image: about,

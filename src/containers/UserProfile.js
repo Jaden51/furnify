@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import FurnitureUpload from '../components/FurnitureUpload';
+import ProductUpload from '../components/ProductUpload/ProductUpload';
 
 class UserAccount extends Component {
     render() {
         return (
             <div>
                 <h1>User Profile Page</h1>
-                <FurnitureUpload />
+                <ProductUpload />
             </div>
         )
     }

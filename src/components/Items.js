@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 class Item extends Component {
     render() {
-        const {image, price } = this.props.storeItem;
+        const { image, price } = this.props.storeItem;
 
         return (
             <div className='block'>

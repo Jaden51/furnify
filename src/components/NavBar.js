@@ -8,6 +8,7 @@ import Store from '../containers/Store';
 import UserProfile from '../containers/UserProfile';
 import Contact from '../containers/Contact';
 import SignUp from '../components/SignUp';
+import Login from '../components/Login';
 
 class NavBar extends Component {
     render() {
@@ -29,6 +30,7 @@ class NavBar extends Component {
                     <Route path='/contact' exact component={Contact} />
                     <Route path='/account' exact component={UserProfile} />
                     <Route path='/signup' exact component={SignUp} />
+                    <Route path='/login' exact component={Login} />
                 </Switch>
             </div>
         )

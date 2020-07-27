@@ -9,10 +9,15 @@ import stool1 from '../assets/stool1.jpg';
 const STORE_ITEMS = [
     {
         id: 1,
-        item: 'chair',
+        category: 'chair',
         color: 'orange',
         price: '$19.99',
-        image: chair1
+        image: chair1,
+        quantity: 1,
+        weight: '100lb',
+        location: 'test address',
+        createdAt: 'date',
+        description: 'test description' 
     },
     {
         id: 2,
