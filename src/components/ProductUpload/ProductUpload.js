@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import DetailsUpload from './DetailsUpload';
 import ImageUpload from './ImageUpload';
 import LocationUpload from './LocationUpload';
+import PaymentUpload from './PaymentUpload';
+import ContactUpload from './ContactUpload';
 
 class ProductUpload extends Component {
     constructor(props) {
@@ -19,18 +21,13 @@ class ProductUpload extends Component {
                 productType: 'Non-Refurbished',
                 description: '',
                 imageLink: '',
-                location: ''
+                location: '',
+                price: 0,
+                paymentMethod: '',
+                phoneNumber: 0,
+                email: ''
             }
         }
-    }
-
-    getImageData = imageData => {
-        this.setState({
-            fields: {
-                ...this.state.fields,
-                imageLink: imageData
-            }
-        })
     }
 
     getDetailsData = detailsData => {
@@ -43,14 +40,73 @@ class ProductUpload extends Component {
         })
     }
 
-    getLocationData = () => {
+    getImageData = imageData => {
+        this.setState({
+            fields: {
+                ...this.state.fields,
+                imageLink: imageData
+            }
+        })
+    }
 
+    getLocationData = locationData => {
+        const { location } = { ...locationData }
+        this.setState({
+            fields: {
+                ...this.state.fields,
+                location
+            }
+        })
+    }
+
+    getPaymentData = paymentData => {
+        const { paymentMethod, price } = { ...paymentData }
+        this.setState({
+            fields: {
+                ...this.state.fields,
+                paymentMethod, price
+            }
+        })
+    }
+
+    getContactData = contactData => {
+        const { phoneNumber, email } = { ...contactData }
+        this.setState({
+            fields: {
+                ...this.state.fields,
+                phoneNumber, email
+            }
+        })
     }
 
     submitProduct = () => {
-        const { title, category, productType, description, imageLink } = this.state.fields;
+        const {
+            title,
+            category,
+            productType,
+            description,
+            imageLink,
+            location,
+            price,
+            paymentMethod,
+            phoneNumber,
+            email
+        } = this.state.fields;
 
-        this.props.dispatch(actions.addProduct({ title, category, productType, description, imageLink }));
+        console.log(this.state.fields)
+
+        this.props.dispatch(actions.addProduct({
+            title,
+            category,
+            productType,
+            description,
+            imageLink,
+            location,
+            price,
+            paymentMethod,
+            phoneNumber,
+            email
+        }));
     }
 
     render() {
@@ -61,6 +117,8 @@ class ProductUpload extends Component {
                     <DetailsUpload toProductUpload={this.getDetailsData} />
                     <ImageUpload toProductUpload={this.getImageData} />
                     <LocationUpload toProductUpload={this.getLocationData} />
+                    <PaymentUpload toProductUpload={this.getPaymentData} />
+                    <ContactUpload toProductUpload={this.getContactData} />
                     <button
                         onClick={this.submitProduct}
                         className='button'
@@ -93,6 +151,7 @@ const StyledProductUpload = styled.div`
 // imageLink,
 // location,
 // price,
-// contact information
+// paymentMethod,
+// phone number,
+// email,
 // createdAt,
-// quantity

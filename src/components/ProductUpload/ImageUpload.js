@@ -50,7 +50,6 @@ class ImageUpload extends Component {
                         this.props.toProductUpload(url);
                     });
             });
-
     }
 
     render() {

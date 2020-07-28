@@ -7,6 +7,11 @@ export const addProduct = (
         productType = '',
         description = '',
         imageLink = '',
+        location = '',
+        price = 0,
+        paymentMethod = '',
+        phoneNumber = '',
+        email = ''
     } = {}
 ) => {
     return {
@@ -17,6 +22,11 @@ export const addProduct = (
             productType,
             description,
             imageLink,
+            location,
+            price,
+            paymentMethod,
+            phoneNumber,
+            email
         }
     }
 }
