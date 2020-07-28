@@ -1,14 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
 
-// const INTIAL_STATE = {
-//     products: [{
-//         id: '',
-//         url: '',
-//         category: '',
-//         progress: 0
-//     }],
-// }
-
 const INTIAL_STATE = [];
 
 const reducer = (state = INTIAL_STATE, action) => {
