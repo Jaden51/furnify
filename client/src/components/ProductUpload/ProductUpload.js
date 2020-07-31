@@ -142,16 +142,3 @@ const StyledProductUpload = styled.div`
         margin: 25px 50px 75px 0px;
     }
 `;
-
-// id,
-// title,
-// category,
-// product type,
-// description 
-// imageLink,
-// location,
-// price,
-// paymentMethod,
-// phone number,
-// email,
-// createdAt,
