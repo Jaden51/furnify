@@ -26,7 +26,7 @@ class Login extends Component {
 
     render() {
         return (
-            <Formik 
+            <Formik
                 initialValues={this.state}
                 onSubmit={this.handleSubmit}
             >
@@ -49,9 +49,9 @@ class Login extends Component {
                         required
                         onChange={this.handleChange}
                     /><br />
-                    <input 
+                    <input
                         type='submit'
-                        className='btn' 
+                        className='btn'
                         value='Login'
                     />
                     <p>
