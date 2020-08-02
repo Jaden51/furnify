@@ -27,7 +27,7 @@ class SignUp extends Component {
     }
 
     handleSubmit = async () => {
-        const { password, confirmPass } = this.state.formData;
+        const { name, email, password, confirmPass } = this.state.formData;
         const { alerts, dispatch } = this.props;
         const alertId = uuidv4();
 
@@ -42,7 +42,7 @@ class SignUp extends Component {
                 alertId
             ))
         } else {
-            console.log(this.state.formData)
+            dispatch(actions.register({ name, email, password }));
         }
     }
 
@@ -61,7 +61,6 @@ class SignUp extends Component {
                         placeholder='Name'
                         name='name'
                         className='input name-input'
-                        required
                         onChange={this.handleChange}
                     /><br />
                     <Field
@@ -69,7 +68,6 @@ class SignUp extends Component {
                         placeholder='Email Address'
                         name='email'
                         className='input name-input'
-                        required
                         onChange={this.handleChange}
                     /><br />
                     <Field
@@ -77,7 +75,6 @@ class SignUp extends Component {
                         placeholder='Password'
                         name='password'
                         className='input pass-input'
-                        required
                         onChange={this.handleChange}
                     /><br />
                     <Field
@@ -85,7 +82,6 @@ class SignUp extends Component {
                         placeholder='Confirm Password'
                         name='confirmPass'
                         className='input confirm-input'
-                        required
                         onChange={this.handleChange}
                     /><br />
                     <input
