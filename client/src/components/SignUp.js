@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Form, Formik, Field } from 'formik';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import * as actions from '../store/actions/index';
+import Alert from '../components/Alert';
+import { v4 as uuidv4 } from 'uuid';
 
 class SignUp extends Component {
     constructor(props) {
@@ -24,8 +28,19 @@ class SignUp extends Component {
 
     handleSubmit = async () => {
         const { password, confirmPass } = this.state.formData;
+        const { alerts, dispatch } = this.props;
+        const alertId = uuidv4();
+
+        if (alerts.length !== 0) {
+            dispatch(actions.removeAlert(alerts[0].id))
+        }
+        
         if (password !== confirmPass) {
-            console.log('Passwords do not match');
+            dispatch(actions.setAlert(
+                'Passwords do not match',
+                'danger',
+                alertId
+            ))
         } else {
             console.log(this.state.formData)
         }
@@ -33,13 +48,14 @@ class SignUp extends Component {
 
     render() {
         return (
-            <Formik 
+            <Formik
                 initialValues={this.state}
                 onSubmit={this.handleSubmit}
             >
                 <Form>
                     <h2>Sign Up</h2>
                     <h3>Create Your Account</h3>
+                    <Alert />
                     <Field
                         type='text'
                         placeholder='Name'
@@ -72,9 +88,9 @@ class SignUp extends Component {
                         required
                         onChange={this.handleChange}
                     /><br />
-                    <input 
-                        type="submit" 
-                        className="btn btn-primary" 
+                    <input
+                        type="submit"
+                        className="btn btn-primary"
                         value="Register"
                     />
                     <p className="my-1">
@@ -86,4 +102,10 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+    return {
+        alerts: state.alerts,
+    }
+}
+
+export default connect(mapStateToProps)(SignUp);
