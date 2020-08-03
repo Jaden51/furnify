@@ -6,6 +6,7 @@ import productsReducer from './reducers/products';
 import filtersReducer from './reducers/filters';
 import alertsReducer from './reducers/alerts';
 import authReducer from './reducers/auth';
+import profileReducer from './reducers/profile';
 
 const middleware = [thunk];
 
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   products: productsReducer,
   filters: filtersReducer,
   alerts: alertsReducer,
-  auth: authReducer
+  auth: authReducer,
+  profile: profileReducer
 });
 
 export default () => {
