@@ -20,6 +20,13 @@ class SignUp extends Component {
         }
     }
 
+    componentDidMount() {
+        const { alerts, dispatch } = this.props;
+        for (let i = 0; i < alerts.length; i++) {
+            dispatch(actions.removeAlert(alerts[i].id))
+        }
+    }
+
     handleChange = ({ target }) => {
         const { formData } = this.state;
         formData[target.name] = target.value;
@@ -66,6 +73,7 @@ class SignUp extends Component {
                         name='name'
                         className='input name-input'
                         onChange={this.handleChange}
+                        required
                     /><br />
                     <Field
                         type='text'
@@ -73,6 +81,7 @@ class SignUp extends Component {
                         name='email'
                         className='input name-input'
                         onChange={this.handleChange}
+                        required
                     /><br />
                     <Field
                         type='password'
@@ -80,6 +89,7 @@ class SignUp extends Component {
                         name='password'
                         className='input pass-input'
                         onChange={this.handleChange}
+                        required
                     /><br />
                     <Field
                         type='password'
@@ -87,6 +97,7 @@ class SignUp extends Component {
                         name='confirmPass'
                         className='input confirm-input'
                         onChange={this.handleChange}
+                        required
                     /><br />
                     <input
                         type="submit"

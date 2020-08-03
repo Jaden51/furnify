@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Alert from '../components/Alert';
 import * as actions from '../store/actions/index';
 
 class Login extends Component {
@@ -16,6 +17,13 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        const { alerts, dispatch } = this.props;
+        for (let i = 0; i < alerts.length; i++) {
+            dispatch(actions.removeAlert(alerts[i].id))
+        }
+    }
+
     handleChange = ({ target }) => {
         const { formData } = this.state;
         formData[target.name] = target.value;
@@ -23,15 +31,21 @@ class Login extends Component {
     }
 
     handleSubmit = async () => {
+        const { alerts, dispatch } = this.props;
         const { email, password } = this.state.formData;
-        this.props.dispatch(actions.login(email, password))
+
+        if (alerts.length !== 0) {
+            dispatch(actions.removeAlert(alerts[0].id))
+        }
+
+        dispatch(actions.login(email, password))
     }
 
     render() {
         if (this.props.auth.isAuthenticated) {
             return <Redirect to='/store' />
         }
-        
+
         return (
             <Formik
                 initialValues={this.state}
@@ -40,6 +54,7 @@ class Login extends Component {
                 <Form>
                     <h2>Sign In</h2>
                     <h3>Sign Into Your Account</h3>
+                    <Alert />
                     <Field
                         type='text'
                         placeholder='Email Address'

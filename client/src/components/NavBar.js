@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import setAuthToken from '../utils/setAuthToken';
 import * as actions from '../store/actions/index';
+import PrivateRoute from './PrivateRoute';
 
 import Home from '../containers/Home';
 import About from '../containers/About';
@@ -12,6 +13,7 @@ import UserProfile from '../containers/UserProfile';
 import Contact from '../containers/Contact';
 import SignUp from '../components/SignUp';
 import Login from '../components/Login';
+import ProductUpload from './ProductUpload/ProductUpload';
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -39,7 +41,8 @@ class NavBar extends Component {
                             <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
                             <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
                             <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
-                            <h3 className='navBar'><Link className='link' to='/account'>Profile</Link></h3>
+                            <h3 className='navBar'><Link className='link' to='/post'>Post Product</Link></h3>
+                            <h3 className='navBar'><Link className='link' to='/profile'>Profile</Link></h3>
                             <h3 className='navBar link logout' onClick={this.logout}>Logout</h3>
                         </div>
                     </StyledNavBar>
@@ -63,7 +66,8 @@ class NavBar extends Component {
                     <Route path='/about' exact component={About} />
                     <Route path='/store' exact component={Store} />
                     <Route path='/contact' exact component={Contact} />
-                    <Route path='/account' exact component={UserProfile} />
+                    <PrivateRoute path='/profile' exact component={UserProfile} />
+                    <PrivateRoute path='/post' exact component={ProductUpload} />
                     <Route path='/signup' exact component={SignUp} />
                     <Route path='/login' exact component={Login} />
                 </Switch>
