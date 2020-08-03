@@ -10,14 +10,25 @@ const INTIAL_STATE = {
 const reducer = (state = INTIAL_STATE, action) => {
     switch (action.type) {
         case actionTypes.REGISTER_SUCCESS:
-            localStorage.setItem('token', action.token);
+        case actionTypes.LOGIN_SUCCESS:
+            localStorage.setItem('token', action.payload.token);
             return {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
                 loading: false
             }
+        case actionTypes.USER_LOADED:
+            return {
+                ...state,
+                isAuthenticated: true,
+                loading: false,
+                user: action.payload
+            }
         case actionTypes.REGISTER_FAIL:
+        case actionTypes.AUTH_ERROR:
+        case actionTypes.LOGIN_FAIL:
+        case actionTypes.LOGOUT:
             localStorage.removeItem('token');
             return {
                 ...state,

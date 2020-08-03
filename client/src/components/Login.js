@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Formik, Field } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions/index';
 
 class Login extends Component {
     constructor(props) {
@@ -21,10 +23,15 @@ class Login extends Component {
     }
 
     handleSubmit = async () => {
-        console.log('Success')
+        const { email, password } = this.state.formData;
+        this.props.dispatch(actions.login(email, password))
     }
 
     render() {
+        if (this.props.auth.isAuthenticated) {
+            return <Redirect to='/store' />
+        }
+        
         return (
             <Formik
                 initialValues={this.state}
@@ -63,4 +70,11 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        alerts: state.alerts,
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Login);

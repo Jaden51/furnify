@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as actions from '../store/actions/index';
 import Alert from '../components/Alert';
 import { v4 as uuidv4 } from 'uuid';
@@ -34,7 +34,7 @@ class SignUp extends Component {
         if (alerts.length !== 0) {
             dispatch(actions.removeAlert(alerts[0].id))
         }
-        
+
         if (password !== confirmPass) {
             dispatch(actions.setAlert(
                 'Passwords do not match',
@@ -47,6 +47,10 @@ class SignUp extends Component {
     }
 
     render() {
+        if (this.props.auth.isAuthenticated) {
+            return <Redirect to='/store' />
+        }
+
         return (
             <Formik
                 initialValues={this.state}
@@ -101,6 +105,7 @@ class SignUp extends Component {
 const mapStateToProps = state => {
     return {
         alerts: state.alerts,
+        auth: state.auth
     }
 }
 

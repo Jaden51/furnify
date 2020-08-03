@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import setAuthToken from '../utils/setAuthToken';
+import * as actions from '../store/actions/index';
 
 import Home from '../containers/Home';
 import About from '../containers/About';
@@ -10,7 +13,14 @@ import Contact from '../containers/Contact';
 import SignUp from '../components/SignUp';
 import Login from '../components/Login';
 
+if (localStorage.token) {
+    setAuthToken(localStorage.token);
+}
 class NavBar extends Component {
+    componentDidMount() {
+        this.props.dispatch(actions.loadUser())
+    }
+
     render() {
         return (
             <div>
@@ -37,7 +47,7 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+export default connect()(NavBar);
 
 const StyledNavBar = styled.div`
     .navBar {
