@@ -16,23 +16,48 @@ import Login from '../components/Login';
 if (localStorage.token) {
     setAuthToken(localStorage.token);
 }
+
 class NavBar extends Component {
     componentDidMount() {
         this.props.dispatch(actions.loadUser())
     }
 
+    logout = () => {
+        this.props.dispatch(actions.logout())
+    }
+
     render() {
+        const { isAuthenticated, loading } = this.props.auth;
+
         return (
             <div>
-                <StyledNavBar>
-                    <div>
-                        <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/account'>Profile</Link></h3>
-                    </div>
-                </StyledNavBar>
+                {!loading && isAuthenticated ? (
+                    // Is authenticated
+                    <StyledNavBar>
+                        <div>
+                            <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
+                            <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
+                            <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
+                            <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
+                            <h3 className='navBar'><Link className='link' to='/account'>Profile</Link></h3>
+                            <h3 className='navBar link logout' onClick={this.logout}>Logout</h3>
+                        </div>
+                    </StyledNavBar>
+                ) : (
+                        // Not authenticated
+                        <StyledNavBar>
+                            <div>
+                                <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
+                                <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
+                                <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
+                                <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
+                                <h3 className='navBar'><Link className='link' to='/signup'>Sign Up</Link></h3>
+                                <h3 className='navBar'><Link className='link' to='/login'>Login</Link></h3>
+                            </div>
+                        </StyledNavBar>
+                    )
+                }
+
                 <Switch>
                     <Route path='/' exact component={Home} />
                     <Route path='/about' exact component={About} />
@@ -42,12 +67,18 @@ class NavBar extends Component {
                     <Route path='/signup' exact component={SignUp} />
                     <Route path='/login' exact component={Login} />
                 </Switch>
-            </div>
+            </div >
         )
     }
 }
 
-export default connect()(NavBar);
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(NavBar);
 
 const StyledNavBar = styled.div`
     .navBar {
@@ -60,6 +91,10 @@ const StyledNavBar = styled.div`
         text-decoration: none;
         font-size: 20px;
         color: #008CBA;
+    }
+
+    .logout {
+        cursor: pointer;
     }
 
     text-align: center;
