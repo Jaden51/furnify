@@ -48,42 +48,40 @@ class Login extends Component {
         }
 
         return (
-            <StyledLogin>
-                <Formik
-                    initialValues={this.state}
-                    onSubmit={this.handleSubmit}
-                >
-                    <Form>
-                        <h2>Sign In</h2>
-                        <h3>Sign Into Your Account</h3>
-                        <Alert />
-                        <Field
-                            type='text'
-                            placeholder='Email Address'
-                            name='email'
-                            className='input email-input'
-                            required
-                            onChange={this.handleChange}
-                        /><br />
-                        <Field
-                            type='password'
-                            placeholder='Password'
-                            name='password'
-                            className='input pass-input'
-                            required
-                            onChange={this.handleChange}
-                        /><br />
-                        <input
-                            type='submit'
-                            className='btn'
-                            value='Login'
-                        />
-                        <p>
-                            Don't have an account? <Link to='/signup'>Sign Up</Link>
-                        </p>
-                    </Form>
-                </Formik>
-            </StyledLogin>
+            <Formik
+                initialValues={this.state}
+                onSubmit={this.handleSubmit}
+            >
+                <Form>
+                    <h2>Sign In</h2>
+                    <h3>Sign Into Your Account</h3>
+                    <Alert />
+                    <Field
+                        type='text'
+                        placeholder='Email Address'
+                        name='email'
+                        className='input email-input'
+                        required
+                        onChange={this.handleChange}
+                    /><br />
+                    <Field
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        className='input pass-input'
+                        required
+                        onChange={this.handleChange}
+                    /><br />
+                    <input
+                        type='submit'
+                        className='btn'
+                        value='Login'
+                    />
+                    <p>
+                        Don't have an account? <Link to='/signup'>Sign Up</Link>
+                    </p>
+                </Form>
+            </Formik>
         )
     }
 }
@@ -96,27 +94,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Login);
-
-const StyledLogin = styled.div`
-    body, input, select, textarea {
-        font-family: "Raleway", Arial, Helvetica, sans-serif;
-        font-weight: 400;
-        font-size: 1rem;
-        line-height: 1.65;
-    }
-    
-    .input {
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        -ms-appearance: none;
-        appearance: none;
-        border-radius: 4px;
-        border: none;
-        border: solid 1px;
-        color: inherit;
-        display: block;
-        outline: 0;
-        padding: 0 1rem;
-        text-decoration: none;
-    }
-`;
