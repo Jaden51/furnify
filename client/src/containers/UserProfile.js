@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
-import DashBoard from '../components/Dashbaord';
+import React, { useEffect, Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions/index';
 
-class UserAccount extends Component {
+import DashBoard from '../components/Profile/Dashbaord';
+
+class UserProfile extends Component {
+    componentDidMount() {
+        this.props.dispatch(actions.getCurrentProfile());
+    }
+
     render() {
         return (
             <div>
@@ -12,4 +19,10 @@ class UserAccount extends Component {
     }
 }
 
-export default UserAccount;
+const mapStateToProps = state => {
+    return {
+        profile: state.profile
+    }
+}
+
+export default connect(mapStateToProps)(UserProfile);

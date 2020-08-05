@@ -55,7 +55,7 @@ class SignUp extends Component {
 
     render() {
         if (this.props.auth.isAuthenticated) {
-            return <Redirect to='/store' />
+            return <Redirect to='/profile' />
         }
 
         return (

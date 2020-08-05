@@ -19,8 +19,9 @@ const reducer = (state = INTIAL_STATE, action) => {
             return {
                 ...state,
                 error: action.error,
-                loading: false
-            }
+                loading: false,
+                profile: null
+            };
         case actions.CLEAR_PROFILE:
             return {
                 ...state,

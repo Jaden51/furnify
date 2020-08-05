@@ -61,6 +61,12 @@ const ProfileSchema = new mongoose.Schema({
 
         }
     ],
+    productsOrdered: {
+        type: Number
+    },
+    productsSold: {
+        type: Number
+    }
 });
 
 module.exports = Profile = mongoose.model('profile', ProfileSchema);
