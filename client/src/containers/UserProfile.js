@@ -5,20 +5,8 @@ import * as actions from '../store/actions/index';
 
 import ProfileForm from '../components/Profile/ProfileForm';
 import Spinner from '../assets/Spinner-1s-200px.gif';
-import Products from '../components/Profile/Products';
 
 class UserProfile extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            products: true,
-            messages: false,
-            favourites: false,
-            orders: false
-        }
-    }
-
     componentDidMount() {
         this.props.dispatch(actions.getCurrentProfile());
     }
@@ -38,7 +26,6 @@ class UserProfile extends Component {
                             </div>
                             <div className='container'>
                                 <ProfileForm />
-                                <Products />
                             </div>
                         </StyledUserProfile>
                     )}
