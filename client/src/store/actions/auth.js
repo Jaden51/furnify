@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import { setAlert } from './alerts';
+import { createProfile, getCurrentProfile } from './profile';
 import axios from 'axios';
 import setAuthToken from '../../utils/setAuthToken';
 
@@ -18,6 +19,9 @@ export const register = ({ name, email, password }) => async dispatch => {
             type: actionTypes.REGISTER_SUCCESS,
             payload: res.data
         })
+        dispatch(loadUser());
+        dispatch(createProfile());
+        dispatch(getCurrentProfile());
     } catch (err) {
         const errors = err.response.data.errors;
 
@@ -65,6 +69,7 @@ export const login = (email, password) => async dispatch => {
             payload: res.data
         })
         dispatch(loadUser());
+        dispatch(getCurrentProfile());
     } catch (err) {
         const errors = err.response.data.errors;
 

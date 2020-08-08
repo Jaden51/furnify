@@ -1,6 +1,6 @@
 import * as actions from './actionTypes';
 import axios from 'axios';
-//import { setAlert } from './alerts';
+import { setAlert } from './alerts';
 
 export const getCurrentProfile = () => async dispatch => {
     try {
@@ -16,3 +16,36 @@ export const getCurrentProfile = () => async dispatch => {
         });
     }
 };
+
+export const createProfile = () => async dispatch => {
+    try {
+        const profileStarter = {
+            time: "",
+            location: "",
+            phoneNumber: "",
+            productsSold: 0,
+            productsOrdered: 0,
+            products: [],
+            reviews: [],
+            orders: []
+        };
+
+        const res = await axios.post('api/profile', profileStarter);
+
+        dispatch({
+            type: actions.GET_PROFILE,
+            profile: res.data
+        })
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        }
+
+        dispatch({
+            type: actions.PROFILE_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
+}

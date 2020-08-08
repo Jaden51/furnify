@@ -35,14 +35,25 @@ router.post('/', auth, async (req, res) => {
     const {
         time,
         location,
-        phoneNumber
+        phoneNumber,
+        productsOrdered,
+        productsSold,
+        products,
+        reviews,
+        orders
     } = req.body;
 
-    const profileFields = {};
-    profileFields.user = req.user.id;
-    if (time) profileFields.time = time;
-    if (location) profileFields.location = location;
-    if (phoneNumber) profileFields.phoneNumber = phoneNumber;
+    const profileFields = {
+        user: req.user.id,
+        time,
+        location,
+        phoneNumber,
+        productsSold,
+        productsOrdered,
+        products,
+        reviews,
+        orders
+    };
 
     try {
         let profile = await Profile.findOne({ user: req.user.id });

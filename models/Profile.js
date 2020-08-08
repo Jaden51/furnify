@@ -39,9 +39,31 @@ const ProfileSchema = new mongoose.Schema({
     phoneNumber: {
         type: String
     },
-    orders: {
-        type: String
-    },
+    orders: [
+        {
+            title: {
+                type: String
+            },
+            category: {
+                type: String
+            },
+            productType: {
+                type: String
+            },
+            description: {
+                type: String
+            },
+            imageLink: {
+                type: String
+            },
+            price: {
+                type: Number
+            },
+            paymentMethod: {
+                type: String
+            }
+        }
+    ],
     reviews: [
         {
             user: {
