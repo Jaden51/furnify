@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Dashboard extends Component {
+class Products extends Component {
     render() {
         return (
-            <div>{this.props.profile.profile.products}</div>
+            <div>Products page</div>
         )
     }
 }
@@ -16,4 +16,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Products);

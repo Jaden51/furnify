@@ -138,7 +138,24 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(ProductUpload);
 
 const StyledProductUpload = styled.div`
-    .button {
-        margin: 25px 50px 75px 0px;
-    }
+.button {
+    padding-top: 12px;
+    padding-right: 25px;
+    padding-bottom: 12px;
+    padding-left: 25px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: #1a1b1f;
+    transition-property: background-color, opacity, color;
+    transition-duration: 400ms, 400ms, 400ms;
+    transition-timing-function: ease, ease, ease;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
 `;
