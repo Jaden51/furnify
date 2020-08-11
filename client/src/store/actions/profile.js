@@ -27,7 +27,9 @@ export const createProfile = () => async dispatch => {
             productsOrdered: 0,
             products: [],
             reviews: [],
-            orders: []
+            orders: [],
+            messages: [],
+            favourites: []
         };
 
         const res = await axios.post('api/profile', profileStarter);

@@ -1,58 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Formik, Form } from 'formik';
-import { Link, useRouteMatch, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
-import Products from './Products';
-import Messages from './Messages';
-import Favourites from './Favourites';
-import Orders from './Orders';
+class ProfileForm extends Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
 
-const ProfileForm = () => {
-    let { path, url } = useRouteMatch();
+        this.state = {
+            view: null
+        }
+    }
 
-    return (
-        <Formik>
-            <Form>
-                <Router>
-                    <Link to={`${url}/products`}>
-                        <button>
-                            <span>Products</span>
-                        </button>
-                    </Link><br />
-                    <Link to={`${url}/messages`}>
-                        <button>
-                            <span>Messages</span>
-                        </button>
-                    </Link><br />
-                    <Link to={`${url}/favourites`}>
-                        <button>
-                            <span>Favourites</span>
-                        </button>
-                    </Link><br />
-                    <Link to={`${url}/orders`}>
-                        <button>
-                            <span>Orders</span>
-                        </button>
-                    </Link><br />
+    handleClick = (i) => {
+        this.setState({ view: i }, () => {
+            this.props.toUserProfile(this.state.view);
+        });
+    }
 
-                    <Switch>
-                        <Route path={`${path}/products`}>
-                            <Products />
-                        </Route>
-                        <Route path={`${path}/messages`}>
-                            <Messages />
-                        </Route>
-                        <Route path={`${path}/favourites`}>
-                            <Favourites />
-                        </Route>
-                        <Route path={`${path}/orders`}>
-                            <Orders />
-                        </Route>
-                    </Switch>
-                </Router>
-            </Form>
-        </Formik>
-    )
+    render() {
+        return (
+            <Formik>
+                <Form>
+                    <Button onClick={this.handleClick.bind(this, 3)}>Products</Button><br />
+                    <Button onClick={this.handleClick.bind(this, 0)}>Messages</Button><br />
+                    <Button onClick={this.handleClick.bind(this, 1)}>Favourites</Button><br />
+                    <Button onClick={this.handleClick.bind(this, 2)}>Orders</Button><br />
+                </Form>
+            </Formik>
+        )
+    }
 }
+
+
 
 export default ProfileForm;

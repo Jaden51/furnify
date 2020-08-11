@@ -3,8 +3,19 @@ import { connect } from 'react-redux';
 
 class Products extends Component {
     render() {
+        const { profile } = this.props.profile;
+
         return (
-            <div>Messages page</div>
+            <div>
+                <h4>Messages Page</h4>
+                {profile.messages.length === 0 ? (
+                    <div>
+                        <p>You currently have no messages</p>
+                    </div>
+                ) : (
+                        <div>Display messages here</div>
+                    )}
+            </div>
         )
     }
 }

@@ -2,6 +2,7 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const REMOVE_PRODCUT = 'REMOVE_PRODUCT';
 export const EDIT_PRODUCT = 'EDIT_PRODUCT';
+export const PRODUCT_ERROR = 'PRODUCT_ERROR';
 
 // Filter action types
 export const SET_TEXT_FILTER = 'SET_TEXT_FILTER';
@@ -27,4 +28,5 @@ export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+
 

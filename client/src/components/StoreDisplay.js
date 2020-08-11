@@ -5,6 +5,10 @@ import Items from './Items';
 import styled from 'styled-components';
 
 class StoreDisplay extends Component {
+    test = () => {
+        console.log(1)
+    }
+
     render() {
         const { products } = this.props;
 

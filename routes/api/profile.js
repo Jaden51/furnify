@@ -40,7 +40,9 @@ router.post('/', auth, async (req, res) => {
         productsSold,
         products,
         reviews,
-        orders
+        orders,
+        messages,
+        favourites
     } = req.body;
 
     const profileFields = {
@@ -52,7 +54,9 @@ router.post('/', auth, async (req, res) => {
         productsOrdered,
         products,
         reviews,
-        orders
+        orders,
+        messages,
+        favourites
     };
 
     try {
@@ -136,9 +140,9 @@ router.delete('/', auth, async (req, res) => {
 // @access Private
 router.put('/products', [auth,
 [
-    body('title', 'Title is required').not().isEmpty(),
-    body('category', 'Category is required').not().isEmpty(),
-    body('description', 'Description is required').not().isEmpty()
+    // body('title', 'Title is required').not().isEmpty(),
+    // body('category', 'Category is required').not().isEmpty(),
+    // body('description', 'Description is required').not().isEmpty()
 ]], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

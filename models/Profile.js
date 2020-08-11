@@ -39,6 +39,41 @@ const ProfileSchema = new mongoose.Schema({
     phoneNumber: {
         type: String
     },
+    messages: [
+        {
+            from: {
+                type: String
+            },
+            message: {
+                type: String
+            }
+        }
+    ],
+    favourites: [
+        {
+            title: {
+                type: String
+            },
+            category: {
+                type: String
+            },
+            productType: {
+                type: String
+            },
+            description: {
+                type: String
+            },
+            imageLink: {
+                type: String
+            },
+            price: {
+                type: Number
+            },
+            paymentMethod: {
+                type: String
+            }
+        }
+    ],
     orders: [
         {
             title: {

@@ -93,8 +93,6 @@ class ProductUpload extends Component {
             email
         } = this.state.fields;
 
-        console.log(this.state.fields)
-
         this.props.dispatch(actions.addProduct({
             title,
             category,

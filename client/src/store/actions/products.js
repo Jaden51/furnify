@@ -1,4 +1,6 @@
 import * as actionTypes from './actionTypes';
+import { setAlert } from './alerts';
+import axios from 'axios';
 
 export const addProduct = (
     {
@@ -13,21 +15,44 @@ export const addProduct = (
         phoneNumber = '',
         email = ''
     } = {}
-) => {
-    return {
-        type: actionTypes.ADD_PRODUCT,
-        product: {
-            title,
-            category,
-            productType,
-            description,
-            imageLink,
-            location,
-            price,
-            paymentMethod,
-            phoneNumber,
-            email
+) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-type': 'application/json'
         }
+    }
+
+    const body = JSON.stringify({
+        title,
+        category,
+        productType,
+        description,
+        imageLink,
+        location,
+        price,
+        paymentMethod,
+        phoneNumber,
+        email
+    })
+
+    try {
+        const res = await axios.put('/api/profile/products', body, config);
+
+        dispatch({
+            type: actionTypes.ADD_PRODUCT,
+            product: res.data
+        })
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        }
+
+        dispatch({
+            type: actionTypes.PRODUCT_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
     }
 }
 
@@ -41,7 +66,7 @@ export const removeProduct = ({ id } = {}) => {
 export const editProduct = (id, updates) => {
     return {
         type: actionTypes.EDIT_PRODUCT,
-        id, 
+        id,
         updates
     }
 }
