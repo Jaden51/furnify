@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import * as actions from '../store/actions/index';
 
 import ProfileForm from '../components/Profile/ProfileForm';
@@ -53,16 +52,15 @@ class UserProfile extends Component {
                 {(profile.profile === null || auth.user === null) ? (
                     <img src={Spinner} alt='spinner'></img>
                 ) : (
-                        <StyledUserProfile>
-                            <div>
-                                <h3>{auth.user.name}</h3>
-                            </div>
-                            <div className='container'>
-                                <ProfileForm toUserProfile={this.getView}/>
-                                {profileView}
-                            </div>
-                        </StyledUserProfile>
-                    )}
+                    <div>
+                        <div>
+                            <h3>{auth.user.name}</h3>
+                        </div>
+                        <div className='container'>
+                            <ProfileForm toUserProfile={this.getView} />
+                            {profileView}
+                        </div></div>
+                )}
             </div>
         )
     }
@@ -76,10 +74,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(UserProfile);
-
-const StyledUserProfile = styled.div`
-    .container {
-        display:flex; 
-        flex-direction: row;
-    }
-`;

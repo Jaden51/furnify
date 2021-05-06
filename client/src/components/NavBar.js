@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import setAuthToken from '../utils/setAuthToken';
 import * as actions from '../store/actions/index';
 import PrivateRoute from './PrivateRoute';
@@ -35,30 +34,26 @@ class NavBar extends Component {
             <div>
                 {!loading && isAuthenticated ? (
                     // Is authenticated
-                    <StyledNavBar>
-                        <div>
-                            <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
-                            <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
-                            <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
-                            <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
-                            <h3 className='navBar'><Link className='link' to='/post'>Post Product</Link></h3>
-                            <h3 className='navBar'><Link className='link' to='/profile'>Profile</Link></h3>
-                            <h3 className='navBar link logout' onClick={this.logout}>Logout</h3>
-                        </div>
-                    </StyledNavBar>
+                    <div>
+                        <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/post'>Post Product</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/profile'>Profile</Link></h3>
+                        <h3 className='navBar link logout' onClick={this.logout}>Logout</h3>
+                    </div>
                 ) : (
-                        // Not authenticated
-                        <StyledNavBar>
-                            <div>
-                                <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
-                                <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
-                                <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
-                                <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
-                                <h3 className='navBar'><Link className='link' to='/signup'>Sign Up</Link></h3>
-                                <h3 className='navBar'><Link className='link' to='/login'>Login</Link></h3>
-                            </div>
-                        </StyledNavBar>
-                    )
+                    // Not authenticated
+                    <div>
+                        <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/signup'>Sign Up</Link></h3>
+                        <h3 className='navBar'><Link className='link' to='/login'>Login</Link></h3>
+                    </div>
+                )
                 }
 
                 <Switch>
@@ -83,23 +78,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(NavBar);
-
-const StyledNavBar = styled.div`
-    .navBar {
-        font-family: 'Economica', sans-serif;
-        display: inline-block;
-        margin: 10px;
-    }
-
-    .link {
-        text-decoration: none;
-        font-size: 20px;
-        color: #008CBA;
-    }
-
-    .logout {
-        cursor: pointer;
-    }
-
-    text-align: center;
-`;

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { Map, TileLayer } from 'react-leaflet';
-// import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
 import { SearchControl, OpenStreetMapProvider } from 'react-leaflet-geosearch'
-import styled from 'styled-components';
 
 class LocationUpload extends Component {
     constructor(props) {
@@ -32,8 +30,8 @@ class LocationUpload extends Component {
         const GeoSearchControlElement = SearchControl;
 
         return (
-            <StyledLocationUpload>
-                <Formik>
+            <div>
+ <Formik>
                     <Form>
                         <h3>3. Location</h3>
                         <Field
@@ -67,7 +65,7 @@ class LocationUpload extends Component {
                         keepResult={true}
                     />
                 </Map>
-            </StyledLocationUpload>
+            </div>
         )
     }
 }
@@ -79,10 +77,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(LocationUpload);
-
-const StyledLocationUpload = styled.div`
-    .leaflet-container {
-        width: 500px;
-        height: 500px;
-    }
-`;

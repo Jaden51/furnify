@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import ImageCarousel from '../components/ImageCarousel';
 import LandingPage from '../components/LandingPage';
@@ -7,17 +6,12 @@ import LandingPage from '../components/LandingPage';
 class Home extends Component {
     render() {
         return (
-            <StyledHome>
+            <div>
                 <LandingPage />
                 <ImageCarousel />
-            </StyledHome>
+            </div>
         );
     }
 }
 
 export default Home;
-
-const StyledHome = styled.div`
-    width: 100vw;
-    margin: 5vh 0;
-`;

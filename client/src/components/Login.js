@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Alert from '../components/Alert';
 import * as actions from '../store/actions/index';
-import styled from 'styled-components';
 
 class Login extends Component {
     constructor(props) {
@@ -48,42 +47,40 @@ class Login extends Component {
         }
 
         return (
-            <StyledLogin>
-                <Formik
-                    initialValues={this.state}
-                    onSubmit={this.handleSubmit}
-                >
-                    <Form className='container'>
-                        <h2>Sign In</h2>
-                        <h3>Sign Into Your Account</h3>
-                        <Alert />
-                        <Field
-                            type='text'
-                            placeholder='Email Address'
-                            name='email'
-                            className='input email-input'
-                            required
-                            onChange={this.handleChange}
-                        /><br />
-                        <Field
-                            type='password'
-                            placeholder='Password'
-                            name='password'
-                            className='input pass-input'
-                            required
-                            onChange={this.handleChange}
-                        /><br />
-                        <input
-                            type='submit'
-                            className='btn'
-                            value='Login'
-                        />
-                        <p>
-                            Don't have an account? <Link to='/signup'>Sign Up</Link>
-                        </p>
-                    </Form>
-                </Formik>
-            </StyledLogin>
+            <Formik
+                initialValues={this.state}
+                onSubmit={this.handleSubmit}
+            >
+                <Form className='container'>
+                    <h2>Sign In</h2>
+                    <h3>Sign Into Your Account</h3>
+                    <Alert />
+                    <Field
+                        type='text'
+                        placeholder='Email Address'
+                        name='email'
+                        className='input email-input'
+                        required
+                        onChange={this.handleChange}
+                    /><br />
+                    <Field
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        className='input pass-input'
+                        required
+                        onChange={this.handleChange}
+                    /><br />
+                    <input
+                        type='submit'
+                        className='btn'
+                        value='Login'
+                    />
+                    <p>
+                        Don't have an account? <Link to='/signup'>Sign Up</Link>
+                    </p>
+                </Form>
+            </Formik>
         )
     }
 }
@@ -96,16 +93,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Login);
-
-const StyledLogin = styled.div`
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;   
-
-    .container {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
-    }
-`;

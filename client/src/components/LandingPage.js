@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 class LandingPage extends Component {
     render() {
         const { isAuthenticated, loading } = this.props.auth;
 
         return (
-            <StyledLandingPage>
+            <div>
                 {!loading && !isAuthenticated ? (
                     <div>
                         <div className='block'>
@@ -29,7 +28,7 @@ class LandingPage extends Component {
                     )
 
                 }
-            </StyledLandingPage>
+            </div>
         )
     }
 }
@@ -41,20 +40,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(LandingPage);
-
-const StyledLandingPage = styled.div`
-    font-family: 'Roboto Condensed', sans-serif;
-
-    .block {
-        margin: 0 10vw;
-        p {
-        margin: 0 0 1rem 0;
-        font-size: 1rem;
-        }
-        h2 {
-        margin: 0;
-        font-size: 1.6rem;
-        font-weight: 400;
-    }
-  }
-`;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { storage, database } from '../Firebase';
 import { Formik } from 'formik';
@@ -56,21 +55,19 @@ class ImageUpload extends Component {
         const { url, progress } = this.state;
 
         return (
-            <StyledImageUpload>
-                <Formik initialValues={this.state}>
-                        <div>
-                            <h3>2. Add Media</h3>
-                            <input type='file' onChange={this.handleChange}></input>
-                            <button onClick={this.handleUpload}>Upload</button>
-                            <div>
-                                <progress value={progress} max='100' />
-                            </div>
-                            <div>
-                                <img src={url} alt='upload' className='img' />
-                            </div>
-                        </div>
-                </Formik>
-            </StyledImageUpload>
+            <Formik initialValues={this.state}>
+                <div>
+                    <h3>2. Add Media</h3>
+                    <input type='file' onChange={this.handleChange}></input>
+                    <button onClick={this.handleUpload}>Upload</button>
+                    <div>
+                        <progress value={progress} max='100' />
+                    </div>
+                    <div>
+                        <img src={url} alt='upload' className='img' />
+                    </div>
+                </div>
+            </Formik>
         )
     }
 }
@@ -82,10 +79,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(ImageUpload);
-
-const StyledImageUpload = styled.div`
-    .img {
-        width: 200px;
-        height: 200px;
-    }
-`;
