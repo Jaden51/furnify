@@ -3,14 +3,10 @@ import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 
 class PaymentUpload extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            fields: {
-                price: 0,
-                paymentMethod: ''
-            }
+    state = {
+        fields: {
+            price: 0,
+            paymentMethod: ''
         }
     }
 
@@ -27,7 +23,7 @@ class PaymentUpload extends Component {
         return (
             <Formik initialValues={this.state}>
                 <Form>
-                    <h3>4. Price</h3>
+                    <h3>3. Price</h3>
                     <label>Price</label>
                     <Field
                         type='radio'

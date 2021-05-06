@@ -33,6 +33,9 @@ const ProfileSchema = new mongoose.Schema({
             },
             paymentMethod: {
                 type: String
+            },
+            status: {
+                type: String
             }
         }
     ],

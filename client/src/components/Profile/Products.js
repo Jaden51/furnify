@@ -8,9 +8,19 @@ class Products extends Component {
     render() {
         const { profile } = this.props.profile;
 
+        var products = profile.products.map(product => {
+            return (
+                <div key={product._id}>
+                    <h4>{product.title}</h4>
+                    <img alt='tempimg'></img>
+                    <p>Status: {product.status}</p>
+                </div>
+            )
+        })
+
         return (
             <div>
-                <h4>Products Page</h4>
+                <h4>Your Products</h4>
                 {profile.products.length === 0 ? (
                     <div>
                         <p>You currently have no products displayed on the site</p>
@@ -21,10 +31,10 @@ class Products extends Component {
                         ><Button>Post Product</Button></Link>
                     </div>
                 ) : (
-                        <div>
-                            Display Products here
-                        </div>
-                    )}
+                    <div>
+                        {products}
+                    </div>
+                )}
             </div>
         )
     }

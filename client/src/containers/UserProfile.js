@@ -10,13 +10,7 @@ import Orders from '../components/Profile/Orders';
 import Favourites from '../components/Profile/Favourites';
 
 class UserProfile extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            view: 3
-        }
-    }
+    state = { view: 3 }
 
     componentDidMount() {
         this.props.dispatch(actions.getCurrentProfile());

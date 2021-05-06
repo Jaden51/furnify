@@ -150,11 +150,11 @@ router.put('/products', [auth,
     }
 
     const {
-        title, category, productType, description, imageLink, price, paymentMethod
+        title, category, productType, description, imageLink, price, paymentMethod, status
     } = req.body;
 
     const newProduct = {
-        title, category, productType, description, imageLink, price, paymentMethod
+        title, category, productType, description, imageLink, price, paymentMethod, status
     }
 
     try {

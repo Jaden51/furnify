@@ -4,7 +4,6 @@ import * as actions from '../../store/actions/index';
 
 import DetailsUpload from './DetailsUpload';
 import ImageUpload from './ImageUpload';
-import LocationUpload from './LocationUpload';
 import PaymentUpload from './PaymentUpload';
 import ContactUpload from './ContactUpload';
 
@@ -24,7 +23,8 @@ class ProductUpload extends Component {
                 price: 0,
                 paymentMethod: '',
                 phoneNumber: 0,
-                email: ''
+                email: '',
+                status: 'Under review'
             }
         }
     }
@@ -89,7 +89,8 @@ class ProductUpload extends Component {
             price,
             paymentMethod,
             phoneNumber,
-            email
+            email,
+            status
         } = this.state.fields;
 
         this.props.dispatch(actions.addProduct({
@@ -102,7 +103,8 @@ class ProductUpload extends Component {
             price,
             paymentMethod,
             phoneNumber,
-            email
+            email,
+            status
         }));
     }
 
@@ -112,7 +114,6 @@ class ProductUpload extends Component {
                 <h2>Upload Product</h2>
                 <DetailsUpload toProductUpload={this.getDetailsData} />
                 <ImageUpload toProductUpload={this.getImageData} />
-                <LocationUpload toProductUpload={this.getLocationData} />
                 <PaymentUpload toProductUpload={this.getPaymentData} />
                 <ContactUpload toProductUpload={this.getContactData} />
                 <button

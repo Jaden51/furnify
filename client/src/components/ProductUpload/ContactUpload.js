@@ -25,7 +25,7 @@ class ContactUpload extends Component {
         return (
             <Formik>
                 <Form>
-                    <h3>5. Contact Information</h3>
+                    <h3>4. Contact Information</h3>
                     <Field 
                         type='text'
                         placeholder='Phone Number (optional)'

@@ -13,7 +13,8 @@ export const addProduct = (
         price = 0,
         paymentMethod = '',
         phoneNumber = '',
-        email = ''
+        email = '',
+        status = ''
     } = {}
 ) => async dispatch => {
     const config = {
@@ -32,7 +33,8 @@ export const addProduct = (
         price,
         paymentMethod,
         phoneNumber,
-        email
+        email,
+        status
     })
 
     try {

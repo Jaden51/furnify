@@ -6,27 +6,17 @@ import Items from './Items';
 class StoreDisplay extends Component {
 
     render() {
-        const { products } = this.props;
-
         return (
                 <div>
+                    <div>
+                        
+                    </div>
                     <div>
                         {
                             STORE_ITEMS.map(STORE_ITEM => {
                                 return (
                                     <Items key={STORE_ITEM.id} storeItem={STORE_ITEM} />
                                 );
-                            })
-                        }
-                        {
-                            products.map(product => {
-                                return (
-                                    <img
-                                        className='img'
-                                        src={product.imageLink}
-                                        alt='temp'>
-                                    </img>
-                                )
                             })
                         }
                     </div>
