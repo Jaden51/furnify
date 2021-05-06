@@ -9,7 +9,7 @@ import stool1 from '../assets/stool1.jpg';
 const STORE_ITEMS = [
     {
         id: 1,
-        category: 'chair',
+        category: 'Tables and Chairs',
         color: 'orange',
         price: '$19.99',
         image: chair1,
@@ -21,6 +21,7 @@ const STORE_ITEMS = [
     },
     {
         id: 2,
+        category: 'Tables and Chairs',
         item: 'chair',
         color: 'pink',
         price: '$29.99',
@@ -28,6 +29,7 @@ const STORE_ITEMS = [
     },
     {
         id: 3,
+        category: 'Tables and Chairs',
         item: 'chair',
         color: 'white',
         price: '$39.99',
@@ -35,6 +37,7 @@ const STORE_ITEMS = [
     },
     {
         id: 4,
+        category: 'Tables and Chairs',
         item: 'chair',
         color: 'baige',
         price: '$49.99',
@@ -42,21 +45,15 @@ const STORE_ITEMS = [
     },
     {
         id: 5,
+        category: 'Sofas and Armchairs',
         item: 'couch',
         color: 'green',
         price: '$49.99',
         image: couch1
-    },
-    {
-        id: 6,
-        item: 'lamp',
-        color: 'black',
-        price: '$69.99',
-        image: lamp1
-    },
+    }
     {
         id: 7,
-        item: 'stool',
+        item: 'Kids Furniture',
         color: 'white',
         price: '$79.99',
         image: stool1

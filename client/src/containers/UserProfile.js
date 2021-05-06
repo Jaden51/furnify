@@ -21,6 +21,7 @@ class UserProfile extends Component {
     }
 
     render() {
+
         const { auth, profile } = this.props;
         const { view } = this.state;
 
@@ -53,7 +54,8 @@ class UserProfile extends Component {
                         <div className='container'>
                             <ProfileForm toUserProfile={this.getView} />
                             {profileView}
-                        </div></div>
+                        </div>
+                    </div>
                 )}
             </div>
         )

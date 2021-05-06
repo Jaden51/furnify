@@ -1,10 +1,8 @@
-const CATEGORIES = [
-    "Sofas and Armchairs",
-    "Tables and Chairs",
-    "Storage System and Units",
-    "Sleeping Area",
-    "Kids Furniture",
-    "Furniture Components and Hardware"
-]
+const CATEGORIES = {
+    softAndArmchairs: "Sofas and Armchairs",
+    tablesAndChairs: "Tables and Chairs",
+    storage: "Storage System and Units",
+    sleeping: "Sleeping Area",
+}
 
 export default CATEGORIES;

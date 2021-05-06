@@ -12,7 +12,7 @@ class ProfileForm extends Component {
         }
     }
 
-    handleClick = (i) => {
+    handleClick = i => {
         this.setState({ view: i }, () => {
             this.props.toUserProfile(this.state.view);
         });
