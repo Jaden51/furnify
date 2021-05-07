@@ -3,7 +3,6 @@ import chair2 from '../assets/chair2.jpg';
 import chair3 from '../assets/chair3.jpg';
 import chair4 from '../assets/chair4.jpg';
 import couch1 from '../assets/couch1.jpg';
-import lamp1 from '../assets/lamp1.jpg';
 import stool1 from '../assets/stool1.jpg';
 
 const STORE_ITEMS = [
@@ -50,7 +49,7 @@ const STORE_ITEMS = [
         color: 'green',
         price: '$49.99',
         image: couch1
-    }
+    },
     {
         id: 7,
         item: 'Kids Furniture',

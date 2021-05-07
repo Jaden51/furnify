@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root'));
