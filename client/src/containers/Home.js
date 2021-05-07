@@ -6,7 +6,7 @@ import LandingPage from '../components/LandingPage';
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div className='container'>
                 <LandingPage />
                 <ImageCarousel />
             </div>

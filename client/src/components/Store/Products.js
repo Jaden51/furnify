@@ -15,20 +15,20 @@ const Products = () => {
     })
 
     return (
-        <div>
-            <div>
-                <div>
-                    <h1>Store Page</h1>
+        <div className='container'>
+            <div className='row'>
+                <div className='col-4'>
                     <ul>{productList}</ul>
                 </div>
+                <Route path={`${url}/:productId`}>
+                    <div className='col-8'>
+                        <Product data={STORE_ITEMS} />
+                    </div>
+                </Route>
+                <Route exact path={url}>
+                    <p>Please select a product.</p>
+                </Route>
             </div>
-
-            <Route path={`${url}/:productId`}>
-                <Product data={STORE_ITEMS} />
-            </Route>
-            <Route exact path={url}>
-                <p>Please select a product.</p>
-            </Route>
         </div>
     );
 

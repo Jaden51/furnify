@@ -42,7 +42,7 @@ class UserProfile extends Component {
         }
 
         return (
-            <div>
+            <div className='container'>
                 <h1>User Profile Page</h1>
                 {(profile.profile === null || auth.user === null) ? (
                     <img src={Spinner} alt='spinner'></img>

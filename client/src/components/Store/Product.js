@@ -11,9 +11,11 @@ const Product = ({ data }) => {
         productData = (
             <div>
                 <h3> {product.title} </h3>
-                <img alt='temp img'></img>
+                <figure className='figure'>
+                    <img alt='temp img' src={product.image} className='figure-img img-thumbnail' width='40%' height='40%'></img>
+                    <figcaption className='figure-caption'>{product.description}</figcaption>
+                </figure>
                 <p>{product.price}</p>
-                <p>{product.description}</p>
                 <h4>{product.status}</h4>
             </div>
         )

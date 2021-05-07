@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import setAuthToken from '../utils/setAuthToken';
 import * as actions from '../store/actions/index';
-import PrivateRoute from './PrivateRoute';
-
-import Home from '../containers/Home';
-import About from '../containers/About';
-import Store from '../containers/Store';
-import UserProfile from '../containers/UserProfile';
-import Contact from '../containers/Contact';
-import SignUp from '../components/SignUp';
-import Login from '../components/Login';
-import ProductUpload from './ProductUpload/ProductUpload';
-import Success from './ProductUpload/Success';
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -32,43 +21,39 @@ class NavBar extends Component {
         const { isAuthenticated, loading } = this.props.auth;
 
         return (
-            <div>
-                {!loading && isAuthenticated ? (
-                    // Is authenticated
-                    <div>
-                        <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/post'>Post Product</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/profile'>Profile</Link></h3>
-                        <h3 className='navBar link logout' onClick={this.logout}>Logout</h3>
+            <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+                <div className='container-fluid'>
+                    <div className='row'>
+                        {!loading && isAuthenticated ? (
+                            // Is authenticated
+                            <div className='collapse navbar-collapse col' id='navbarSupportedContent'>
+                                <ul className='nav justify-content-center'>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/'>Home</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/about'>About</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/store'>Store</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/contact'>Contact</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/post'>Post Product</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/profile'>Profile</Link></h3>
+                                    <h3 className='nav-item' onClick={this.logout}><Link className='nav-link' to='/profile'>Logout</Link></h3>
+                                </ul>
+                            </div>
+                        ) : (
+                            // Not authenticated
+                            <div className='collapse navbar-collapse col' id='navbarSupportedContent'>
+                                <ul className='nav justify-content-center'>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/'>Home</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/about'>About</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/store'>Store</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/contact'>Contact</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/signup'>Sign Up</Link></h3>
+                                    <h3 className='nav-item'><Link className='nav-link' to='/login'>Login</Link></h3>
+                                </ul>
+                            </div>
+                        )
+                        }
                     </div>
-                ) : (
-                    // Not authenticated
-                    <div>
-                        <h3 className='navBar'><Link className='link' to='/'>Home</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/about'>About</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/store'>Store</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/contact'>Contact</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/signup'>Sign Up</Link></h3>
-                        <h3 className='navBar'><Link className='link' to='/login'>Login</Link></h3>
-                    </div>
-                )
-                }
-
-                <Switch>
-                    <Route path='/' exact component={Home} />
-                    <Route path='/about' exact component={About} />
-                    <Route path='/store' component={Store} />
-                    <Route path='/contact' exact component={Contact} />
-                    <PrivateRoute path='/profile' exact component={UserProfile} />
-                    <PrivateRoute path='/post' exact component={ProductUpload} />
-                    <Route path='/signup' exact component={SignUp} />
-                    <Route path='/login' exact component={Login} />
-                    <Route path='/success' exact component={Success} />
-                </Switch>
-            </div >
+                </div>
+            </nav >
         )
     }
 }

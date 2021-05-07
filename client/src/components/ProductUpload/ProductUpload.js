@@ -112,13 +112,17 @@ class ProductUpload extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Upload Product</h2>
-                <DetailsUpload toProductUpload={this.getDetailsData} />
-                <ImageUpload toProductUpload={this.getImageData} />
-                <PaymentUpload toProductUpload={this.getPaymentData} />
-                <ContactUpload toProductUpload={this.getContactData} />
-                <button onClick={this.submitProduct}><Link to='/success'>Post Furniture</Link></button>
+            <div className='container'>
+                <div className='row justify-content-md-center'>
+                    <div class='col-md-auto'>
+                        <h2>Upload Product</h2>
+                        <DetailsUpload toProductUpload={this.getDetailsData} />
+                        <ImageUpload toProductUpload={this.getImageData} />
+                        <PaymentUpload toProductUpload={this.getPaymentData} />
+                        <ContactUpload toProductUpload={this.getContactData} />
+                        <button onClick={this.submitProduct}><Link to='/success'>Post Furniture</Link></button>
+                    </div>
+                </div>
             </div >
         )
     }

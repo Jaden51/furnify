@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 class About extends Component {
     render() {
         return (
-            <div>
-                <img className='img' alt="tempimg"></img>
-                <div className='about-text'>
+            <div className='container'>
+                <img className='img-fluid' alt="tempimg" /*src={about}*/></img>
+                <div>
                     <h1>About Us</h1>
                     <p>
                         We are an online store which allows consumers to sell there old furniture. We take that old furniture, refurbish
