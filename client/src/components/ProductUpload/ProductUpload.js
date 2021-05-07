@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
+import STATUS from '../../data/status';
 
 import DetailsUpload from './DetailsUpload';
 import ImageUpload from './ImageUpload';
 import PaymentUpload from './PaymentUpload';
 import ContactUpload from './ContactUpload';
+import { Link } from 'react-router-dom';
 
 class ProductUpload extends Component {
     constructor(props) {
@@ -24,7 +26,7 @@ class ProductUpload extends Component {
                 paymentMethod: '',
                 phoneNumber: 0,
                 email: '',
-                status: 'Under review'
+                status: STATUS.review
             }
         }
     }
@@ -116,10 +118,7 @@ class ProductUpload extends Component {
                 <ImageUpload toProductUpload={this.getImageData} />
                 <PaymentUpload toProductUpload={this.getPaymentData} />
                 <ContactUpload toProductUpload={this.getContactData} />
-                <button
-                    onClick={this.submitProduct}
-                    className='button'
-                >Post Furniture</button>
+                <button onClick={this.submitProduct}><Link to='/success'>Post Furniture</Link></button>
             </div >
         )
     }

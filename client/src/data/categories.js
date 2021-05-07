@@ -1,5 +1,5 @@
 const CATEGORIES = {
-    softAndArmchairs: "Sofas and Armchairs",
+    sofaAndArmchairs: "Sofas and Armchairs",
     tablesAndChairs: "Tables and Chairs",
     storage: "Storage System and Units",
     sleeping: "Sleeping Area",

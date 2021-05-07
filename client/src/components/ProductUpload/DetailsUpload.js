@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-
-const CATEGORIES = ['Chair', 'Table', 'Stool', 'Loveseat'];
+import CATEGORIES from '../../data/categories';
 
 class DetailsUpload extends Component {
     constructor(props) {
@@ -26,6 +25,17 @@ class DetailsUpload extends Component {
     }
 
     render() {
+
+        if (CATEGORIES) {
+            var categories = Object.keys(CATEGORIES).map((key, index) => {
+                return (
+                    <option key={CATEGORIES[key]} value={CATEGORIES[key]}>
+                        {CATEGORIES[key]}
+                    </option>
+                )
+            })
+        }
+
         return (
             <Formik initialValues={this.state}>
                 <Form>
@@ -39,22 +49,10 @@ class DetailsUpload extends Component {
                     />
                     <Field
                         component='select'
-                        name='productType'
-                        onChange={this.handleChange}
-                    >
-                        <option>Non-Refurbished</option>
-                        <option>Refurbished</option>
-                    </Field>
-                    <Field
-                        component='select'
                         name='category'
                         onChange={this.handleChange}
                     >
-                        {CATEGORIES.map(category => (
-                            <option key={category} value={category}>
-                                {category}
-                            </option>
-                        ))}
+                        {categories}
                     </Field>
                     <Field
                         type='text'

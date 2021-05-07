@@ -4,14 +4,16 @@ import { useParams } from 'react-router-dom';
 const Product = ({ data }) => {
     const { productId } = useParams();
     const product = data.find(p => p.id === productId);
+
     let productData;
 
     if (product) {
         productData = (
             <div>
-                <h3> {product.name} </h3>
+                <h3> {product.title} </h3>
+                <img alt='temp img'></img>
+                <p>{product.price}</p>
                 <p>{product.description}</p>
-                <hr />
                 <h4>{product.status}</h4>
             </div>
         )

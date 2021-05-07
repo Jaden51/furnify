@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
 import STORE_ITEMS from '../../data/storeItems';
+import Product from './Product';
 
-const Products = ({ match }) => {
+const Products = () => {
     const { url } = useRouteMatch();
 
-    const productList = productData.map(product => {
+    const productList = STORE_ITEMS.map(product => {
         return (
             <li key={product.id}>
-                <Link to={`${url}/${product.id}`}>{product.name}</Link>
+                <Link to={`${url}/${product.id}`}>{product.title}</Link>
             </li>
         )
     })
@@ -17,13 +18,13 @@ const Products = ({ match }) => {
         <div>
             <div>
                 <div>
-                    <h3>Products</h3>
+                    <h1>Store Page</h1>
                     <ul>{productList}</ul>
                 </div>
             </div>
 
             <Route path={`${url}/:productId`}>
-                <Product data={productData} />
+                <Product data={STORE_ITEMS} />
             </Route>
             <Route exact path={url}>
                 <p>Please select a product.</p>
@@ -32,3 +33,5 @@ const Products = ({ match }) => {
     );
 
 }
+
+export default Products;

@@ -13,6 +13,7 @@ import Contact from '../containers/Contact';
 import SignUp from '../components/SignUp';
 import Login from '../components/Login';
 import ProductUpload from './ProductUpload/ProductUpload';
+import Success from './ProductUpload/Success';
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -59,12 +60,13 @@ class NavBar extends Component {
                 <Switch>
                     <Route path='/' exact component={Home} />
                     <Route path='/about' exact component={About} />
-                    <Route path='/store' exact component={Store} />
+                    <Route path='/store' component={Store} />
                     <Route path='/contact' exact component={Contact} />
                     <PrivateRoute path='/profile' exact component={UserProfile} />
                     <PrivateRoute path='/post' exact component={ProductUpload} />
                     <Route path='/signup' exact component={SignUp} />
                     <Route path='/login' exact component={Login} />
+                    <Route path='/success' exact component={Success} />
                 </Switch>
             </div >
         )
