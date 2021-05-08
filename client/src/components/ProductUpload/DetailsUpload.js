@@ -39,28 +39,33 @@ class DetailsUpload extends Component {
         return (
             <Formik initialValues={this.state}>
                 <Form>
-                    <h3>1. Add Details</h3>
+                    <h5>1. Details</h5>
                     <Field
                         type='text'
                         placeholder='Title'
                         name='title'
-                        className='input title-input'
+                        className='form-control'
                         onChange={this.handleChange}
                     />
+                    <label className='form-label'>Category</label>
                     <Field
                         component='select'
                         name='category'
+                        className='form-select form-select-sm'
+                        aria-label='.form-select-sm'
                         onChange={this.handleChange}
                     >
                         {categories}
                     </Field>
+                    <span style={{ margin: '.5rem' }}></span>
                     <Field
-                        type='text'
-                        placeholder='Description'
+                        type='textarea'
+                        placeholder='Description (optional)'
                         name='description'
-                        className='input desciprtion-input'
+                        className='form-control'
                         onChange={this.handleChange}
                     />
+                    <hr />
                 </Form>
             </Formik>
         )

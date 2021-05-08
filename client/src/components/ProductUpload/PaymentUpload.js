@@ -17,6 +17,10 @@ class PaymentUpload extends Component {
         this.props.toProductUpload(this.state.fields);
     }
 
+    isDisabled = () => {
+        return true;
+    }
+
     render() {
         const { paymentMethod } = this.state.fields;
 
@@ -24,44 +28,58 @@ class PaymentUpload extends Component {
             <Formik initialValues={this.state}>
                 <Form>
                     <h3>3. Price</h3>
-                    <label>Price</label>
-                    <Field
-                        type='radio'
-                        name='paymentMethod'
-                        value='Price'
-                        checked={paymentMethod === 'Price'}
-                        onChange={this.handleChange}
-                    />
-                    <label>$</label>
-                    <Field
-                        type='number'
-                        name='price'
-                        onChange={this.handleChange}
-                    /><br />
-                    <Field
-                        type='radio'
-                        name='paymentMethod'
-                        value='Free'
-                        checked={paymentMethod === 'Free'}
-                        onChange={this.handleChange}
-                    />
-                    <label>Free</label><br />
-                    <Field
-                        type='radio'
-                        name='paymentMethod'
-                        value='Please Contact'
-                        checked={paymentMethod === 'Please Contact'}
-                        onChange={this.handleChange}
-                    />
-                    <label>Please Contact</label><br />
-                    <Field
-                        type='radio'
-                        name='paymentMethod'
-                        value='Trade'
-                        checked={paymentMethod === 'Trade'}
-                        onChange={this.handleChange}
-                    />
-                    <label>Trade</label><br />
+                    <div className='form-check'>
+                        <Field
+                            type='radio'
+                            name='paymentMethod'
+                            value='Price'
+                            className='form-check-input'
+                            checked={paymentMethod === 'Price'}
+                            onChange={this.handleChange}
+                        />
+                        <label className='form-check-label'>$</label>
+                        <Field
+                            type='number'
+                            name='price'
+                            className='form-control'
+                            onChange={this.handleChange}
+                            disabled={paymentMethod !== 'Price' ? true : false}
+                        />
+                        <br />
+                    </div>
+                    <div className='form-check'>
+                        <Field
+                            type='radio'
+                            name='paymentMethod'
+                            value='Free'
+                            className='form-check-input'
+                            checked={paymentMethod === 'Free'}
+                            onChange={this.handleChange}
+                        />
+                        <label>Free</label><br />
+                    </div>
+                    <div className='form-check'>
+                        <Field
+                            type='radio'
+                            name='paymentMethod'
+                            value='Please Contact'
+                            className='form-check-input'
+                            checked={paymentMethod === 'Please Contact'}
+                            onChange={this.handleChange}
+                        />
+                        <label>Please Contact</label><br />
+                    </div>
+                    <div className='form-check'>
+                        <Field
+                            type='radio'
+                            name='paymentMethod'
+                            value='Trade'
+                            className='form-check-input'
+                            checked={paymentMethod === 'Trade'}
+                            onChange={this.handleChange}
+                        />
+                        <label>Trade</label><br />
+                    </div>
                 </Form>
             </Formik>
         )

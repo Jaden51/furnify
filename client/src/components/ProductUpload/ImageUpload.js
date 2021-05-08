@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { storage, database } from '../Firebase';
 import { Formik } from 'formik';
+import placeholder from '../../assets/placeholder.png';
 
 class ImageUpload extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class ImageUpload extends Component {
         const { files } = e.target;
 
         if (files[0]) {
-            this.setState({ image: files[0] })
+            this.setState({ image: files[0] }, this.handleUpload)
         }
     }
 
@@ -56,16 +57,23 @@ class ImageUpload extends Component {
 
         return (
             <Formik initialValues={this.state}>
-                <div>
-                    <h3>2. Add Media</h3>
-                    <input type='file' onChange={this.handleChange}></input>
-                    <button onClick={this.handleUpload}>Upload</button>
+                <div className='mb-3'>
+                    <h5 htmlFor='formFile' className='form-label'>2. Media</h5>
+                    <input className='form-control' id='formFile' type='file' onChange={this.handleChange}></input>
                     <div>
                         <progress value={progress} max='100' />
                     </div>
                     <div>
-                        <img src={url} alt='upload' className='img' />
+                        {progress !== 100 ? (
+                            <div>
+                                <img src={placeholder} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
+                            </div>
+                        ) : (
+                            <div>
+                                <img src={url} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
+                            </div>)}
                     </div>
+                    <hr />
                 </div>
             </Formik>
         )

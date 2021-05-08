@@ -6,13 +6,17 @@ import { Button } from 'react-bootstrap';
 
 class Products extends Component {
     render() {
+
         const { profile } = this.props.profile;
+        console.log(profile);
 
         var products = profile.products.map(product => {
             return (
                 <div key={product._id}>
                     <h4>{product.title}</h4>
-                    <img alt='tempimg'></img>
+                    <div>
+                        <img alt='tempimg' src={product.imageLink} ></img>
+                    </div>
                     <p>Status: {product.status}</p>
                 </div>
             )

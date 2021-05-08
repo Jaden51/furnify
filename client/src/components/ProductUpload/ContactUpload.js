@@ -30,14 +30,9 @@ class ContactUpload extends Component {
                         type='text'
                         placeholder='Phone Number (optional)'
                         name='phoneNumber'
+                        className='form-control'
                         onChange={this.handleChange}
                     /><br />
-                    <Field 
-                        type='text'
-                        placeholder='Email (optional)'
-                        name='email'
-                        onChange={this.handleChange}
-                    />
                 </Form>
             </Formik>
         )
