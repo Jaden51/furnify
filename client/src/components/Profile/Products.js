@@ -9,33 +9,52 @@ class Products extends Component {
 
         const { profile } = this.props.profile;
 
-        var products = profile.products.map(product => {
+        var products = profile.products.map((product, index) => {
             return (
-                <div key={product._id}>
-                    <h4>{product.title}</h4>
-                    <div>
-                        <img alt='tempimg' src={product.imageLink} ></img>
-                    </div>
-                    <p>Status: {product.status}</p>
-                </div>
+                <tr key={product._id}>
+                    <th scope='row'>{index + 1}</th>
+                    <td className='w-25'>
+                        <img className='img-thumbnail' alt='tempimg' src={product.imageLink} width='300' height='300'></img>
+                    </td>
+                    <td>{product.title}</td>
+                    {product.price === 0 ? (<td>{product.paymentMethod}</td>) : (<td>${product.price}</td>)}
+                    <td>{product.status}</td>
+                </tr>
             )
         })
 
         return (
             <div>
-                <h4>Your Products</h4>
+                <h4>Products</h4>
                 {profile.products.length === 0 ? (
                     <div>
-                        <p>You currently have no products displayed on the site</p>
+                        <p>You currently have no products displayed on the site.</p>
                         <Link
                             to={{
                                 pathname: "/post"
                             }}
-                        ><Button>Post Product</Button></Link>
+                        ><button className='btn btn-secondary'>Post Product</button></Link>
                     </div>
                 ) : (
-                    <div>
-                        {products}
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-12'>
+                                <table className='table'>
+                                    <thead>
+                                        <tr>
+                                            <th scope='col'>Number</th>
+                                            <th scope='col'>Image</th>
+                                            <th scope='col'>Title</th>
+                                            <th scope='col'>Price</th>
+                                            <th scope='col'>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {products}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>

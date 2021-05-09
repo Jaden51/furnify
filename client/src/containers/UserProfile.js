@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions/index';
 
 import ProfileForm from '../components/Profile/ProfileForm';
-import Spinner from '../assets/Spinner-1s-200px.gif';
 import Products from '../components/Profile/Products';
 import Messages from '../components/Profile/Messages';
 import Orders from '../components/Profile/Orders';
@@ -43,13 +42,16 @@ class UserProfile extends Component {
 
         return (
             <div className='container'>
-                <h1>User Profile Page</h1>
                 {(profile.profile === null || auth.user === null) ? (
-                    <img src={Spinner} alt='spinner'></img>
+                    <div className='d-flex justify-content-center'>
+                        <div role='status' className='spinner-border text-primary'>
+                            <span className='visually-hidden'>Loading...</span>
+                        </div>
+                    </div>
                 ) : (
                     <div>
                         <div>
-                            <h3>{auth.user.name}</h3>
+                            <h3>Hello, {auth.user.name}!</h3>
                         </div>
                         <div className='container'>
                             <ProfileForm toUserProfile={this.getView} />

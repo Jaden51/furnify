@@ -62,13 +62,13 @@ class ImageUpload extends Component {
                     <progress value={progress} max='100' />
                 </div>
                 <div>
-                    {progress !== 100 ? (
+                    {url === '' ? (
                         <div>
                             <img src={placeholder} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
                         </div>
                     ) : (
                         <div>
-                            <img src={url} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
+                            <img src={url} className='img-thumbnail' alt={'poop]'} width='500' height='400'></img>
                         </div>)}
                 </div>
                 <hr />

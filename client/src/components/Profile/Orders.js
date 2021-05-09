@@ -7,10 +7,10 @@ class Orders extends Component {
 
         return (
             <div>
-                <h4>Orders Page</h4>
+                <h4>Orders</h4>
                 {profile.orders.length === 0 ? (
                     <div>
-                        <p>You currently have no ordesr</p>
+                        <p>You currently have no orders.</p>
                     </div>
                 ) : (
                         <div>Display orders here</div>

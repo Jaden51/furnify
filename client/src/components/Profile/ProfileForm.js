@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Formik, Form } from 'formik';
-import { Button } from 'react-bootstrap';
 
 class ProfileForm extends Component {
     constructor(props) {
@@ -20,14 +18,12 @@ class ProfileForm extends Component {
 
     render() {
         return (
-            <Formik>
-                <Form>
-                    <Button onClick={this.handleClick.bind(this, 3)}>Products</Button><br />
-                    <Button onClick={this.handleClick.bind(this, 0)}>Messages</Button><br />
-                    <Button onClick={this.handleClick.bind(this, 1)}>Favourites</Button><br />
-                    <Button onClick={this.handleClick.bind(this, 2)}>Orders</Button><br />
-                </Form>
-            </Formik>
+            <div>
+                <button onClick={this.handleClick.bind(this, 3)} className='btn btn-outline-primary'>Products</button>
+                <button onClick={this.handleClick.bind(this, 0)} className='btn btn-outline-primary'>Messages</button>
+                <button onClick={this.handleClick.bind(this, 1)} className='btn btn-outline-primary'>Favourites</button>
+                <button onClick={this.handleClick.bind(this, 2)} className='btn btn-outline-primary'>Orders</button>
+            </div>
         )
     }
 }
