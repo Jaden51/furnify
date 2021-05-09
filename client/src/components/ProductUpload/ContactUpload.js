@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Formik, Form, Field } from 'formik';
+import { Field } from 'formik';
 
 class ContactUpload extends Component {
     constructor(props) {
@@ -23,18 +23,16 @@ class ContactUpload extends Component {
 
     render() {
         return (
-            <Formik>
-                <Form>
-                    <h3>4. Contact Information</h3>
-                    <Field 
-                        type='text'
-                        placeholder='Phone Number (optional)'
-                        name='phoneNumber'
-                        className='form-control'
-                        onChange={this.handleChange}
-                    /><br />
-                </Form>
-            </Formik>
+            <div>
+                <h3>4. Contact Information</h3>
+                <Field
+                    type='text'
+                    placeholder='Phone Number (optional)'
+                    name='phoneNumber'
+                    className='form-control'
+                    onChange={this.handleChange}
+                /><br />
+            </div>
         )
     }
 }

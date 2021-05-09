@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { storage, database } from '../Firebase';
-import { Formik } from 'formik';
 import placeholder from '../../assets/placeholder.png';
 
 class ImageUpload extends Component {
@@ -56,26 +55,24 @@ class ImageUpload extends Component {
         const { url, progress } = this.state;
 
         return (
-            <Formik initialValues={this.state}>
-                <div className='mb-3'>
-                    <h5 htmlFor='formFile' className='form-label'>2. Media</h5>
-                    <input className='form-control' id='formFile' type='file' onChange={this.handleChange}></input>
-                    <div>
-                        <progress value={progress} max='100' />
-                    </div>
-                    <div>
-                        {progress !== 100 ? (
-                            <div>
-                                <img src={placeholder} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
-                            </div>
-                        ) : (
-                            <div>
-                                <img src={url} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
-                            </div>)}
-                    </div>
-                    <hr />
+            <div className='mb-3'>
+                <h5 htmlFor='formFile' className='form-label'>2. Media</h5>
+                <input className='form-control' id='formFile' type='file' onChange={this.handleChange} required></input>
+                <div>
+                    <progress value={progress} max='100' />
                 </div>
-            </Formik>
+                <div>
+                    {progress !== 100 ? (
+                        <div>
+                            <img src={placeholder} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
+                        </div>
+                    ) : (
+                        <div>
+                            <img src={url} className='img-thumbnail' alt={'responsive'} width='500' height='400'></img>
+                        </div>)}
+                </div>
+                <hr />
+            </div>
         )
     }
 }

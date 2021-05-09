@@ -8,7 +8,6 @@ class Products extends Component {
     render() {
 
         const { profile } = this.props.profile;
-        console.log(profile);
 
         var products = profile.products.map(product => {
             return (

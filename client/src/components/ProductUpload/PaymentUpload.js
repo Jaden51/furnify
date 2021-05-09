@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Formik, Form, Field } from 'formik';
+import { Field } from 'formik';
 
 class PaymentUpload extends Component {
     state = {
@@ -25,63 +25,70 @@ class PaymentUpload extends Component {
         const { paymentMethod } = this.state.fields;
 
         return (
-            <Formik initialValues={this.state}>
-                <Form>
-                    <h3>3. Price</h3>
-                    <div className='form-check'>
-                        <Field
-                            type='radio'
-                            name='paymentMethod'
-                            value='Price'
-                            className='form-check-input'
-                            checked={paymentMethod === 'Price'}
-                            onChange={this.handleChange}
-                        />
-                        <label className='form-check-label'>$</label>
+            <div>
+                <h3>3. Price</h3>
+                <div className='form-check'>
+                    <Field
+                        type='radio'
+                        name='paymentMethod'
+                        value='Price'
+                        className='form-check-input'
+                        checked={paymentMethod === 'Price'}
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <div className='input-group'>
+                        <span className='input-group-text'>$</span>
                         <Field
                             type='number'
+                            step='.01'
                             name='price'
                             className='form-control'
                             onChange={this.handleChange}
                             disabled={paymentMethod !== 'Price' ? true : false}
+                            required
                         />
-                        <br />
                     </div>
-                    <div className='form-check'>
-                        <Field
-                            type='radio'
-                            name='paymentMethod'
-                            value='Free'
-                            className='form-check-input'
-                            checked={paymentMethod === 'Free'}
-                            onChange={this.handleChange}
-                        />
-                        <label>Free</label><br />
-                    </div>
-                    <div className='form-check'>
-                        <Field
-                            type='radio'
-                            name='paymentMethod'
-                            value='Please Contact'
-                            className='form-check-input'
-                            checked={paymentMethod === 'Please Contact'}
-                            onChange={this.handleChange}
-                        />
-                        <label>Please Contact</label><br />
-                    </div>
-                    <div className='form-check'>
-                        <Field
-                            type='radio'
-                            name='paymentMethod'
-                            value='Trade'
-                            className='form-check-input'
-                            checked={paymentMethod === 'Trade'}
-                            onChange={this.handleChange}
-                        />
-                        <label>Trade</label><br />
-                    </div>
-                </Form>
-            </Formik>
+                    <br />
+                </div>
+                <div className='form-check'>
+                    <Field
+                        type='radio'
+                        name='paymentMethod'
+                        value='Free'
+                        className='form-check-input'
+                        checked={paymentMethod === 'Free'}
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <label>Free</label><br />
+                </div>
+                <div className='form-check'>
+                    <Field
+                        type='radio'
+                        name='paymentMethod'
+                        value='Please Contact'
+                        className='form-check-input'
+                        checked={paymentMethod === 'Please Contact'}
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <label>Please Contact</label><br />
+                </div>
+                <div className='form-check'>
+                    <Field
+                        type='radio'
+                        name='paymentMethod'
+                        value='Trade'
+                        className='form-check-input'
+                        checked={paymentMethod === 'Trade'}
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <label>Trade</label><br />
+                </div>
+                <hr />
+            </div>
         )
     }
 }

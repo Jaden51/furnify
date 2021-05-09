@@ -7,11 +7,12 @@ import DetailsUpload from './DetailsUpload';
 import ImageUpload from './ImageUpload';
 import PaymentUpload from './PaymentUpload';
 import ContactUpload from './ContactUpload';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { Formik, Form } from 'formik';
 
 class ProductUpload extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             errors: {},
@@ -27,7 +28,8 @@ class ProductUpload extends Component {
                 phoneNumber: 0,
                 email: '',
                 status: STATUS.review
-            }
+            },
+            success: false
         }
     }
 
@@ -81,53 +83,52 @@ class ProductUpload extends Component {
     }
 
     submitProduct = () => {
+        console.log('submit')
         const {
-            title,
-            category,
-            productType,
-            description,
-            imageLink,
-            location,
-            price,
-            paymentMethod,
-            phoneNumber,
-            email,
-            status
+            title, category, productType, description,
+            imageLink, location, price, paymentMethod,
+            phoneNumber, email, status
         } = this.state.fields;
 
         this.props.dispatch(actions.addProduct({
-            title,
-            category,
-            productType,
-            description,
-            imageLink,
-            location,
-            price,
-            paymentMethod,
-            phoneNumber,
-            email,
-            status
+            title, category, productType, description,
+            imageLink, location, price, paymentMethod,
+            phoneNumber, email, status
         }));
+
+        this.setState({ success: true })
+
     }
 
     render() {
+        if (this.state.success) {
+            return <Redirect to='/success' />
+        }
+
         return (
-            <div className='container'>
-                <div className='row justify-content-md-center'>
-                    <div className='col-md-auto'>
-                        <h2>Upload Furniture</h2>
-                        <DetailsUpload toProductUpload={this.getDetailsData} />
-                        <ImageUpload toProductUpload={this.getImageData} />
-                        <PaymentUpload toProductUpload={this.getPaymentData} />
-                        <ContactUpload toProductUpload={this.getContactData} />
-                        <button onClick={this.submitProduct} type='button' className='btn btn-outline-primary'>
-                            <Link to='/success' style={{textDecoration: 'none'}}>
-                                Post Furniture
-                            </Link>
-                        </button>
+            <Formik
+                initialValues={this.state}
+                onSubmit={this.submitProduct}
+            >
+                <Form>
+                    <div className='container'>
+                        <div className='row justify-content-md-center'>
+                            <div className='col-md-auto'>
+                                <h2>Upload Furniture</h2>
+                                <DetailsUpload toProductUpload={this.getDetailsData} />
+                                <ImageUpload toProductUpload={this.getImageData} />
+                                <PaymentUpload toProductUpload={this.getPaymentData} />
+                                <ContactUpload toProductUpload={this.getContactData} />
+                                <input
+                                    type="submit"
+                                    className="btn btn-primary"
+                                    value="Submit Furniture"
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div >
+                </Form>
+            </Formik>
         )
     }
 }
