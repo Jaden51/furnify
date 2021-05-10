@@ -8,25 +8,27 @@ const Products = () => {
 
     const productList = STORE_ITEMS.map(product => {
         return (
-            <li key={product.id}>
-                <Link to={`${url}/${product.id}`}>{product.title}</Link>
-            </li>
+            <Link key={product.id} style={{ textDecoration: 'none' }} to={`${url}/${product.id}`}>
+                <li className='list-group-item list-group-item-action'>
+                    {product.title}
+                </li>
+            </Link >
         )
     })
 
     return (
         <div className='container'>
             <div className='row'>
-                <div className='col-4'>
+                <div className='col list-group'>
                     <ul>{productList}</ul>
                 </div>
                 <Route path={`${url}/:productId`}>
-                    <div className='col-8'>
+                    <div className='col'>
                         <Product data={STORE_ITEMS} />
                     </div>
                 </Route>
                 <Route exact path={url}>
-                    <p>Please select a product.</p>
+                    <p className='text-center'>Please select a product.</p>
                 </Route>
             </div>
         </div>

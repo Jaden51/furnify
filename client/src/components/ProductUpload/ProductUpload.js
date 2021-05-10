@@ -114,7 +114,7 @@ class ProductUpload extends Component {
                     <div className='container'>
                         <div className='row justify-content-md-center'>
                             <div className='col-md-auto'>
-                                <h2 class="h1-responsive font-weight-bold text-center my-4">Upload Furniture</h2>
+                                <h2 className="h1-responsive font-weight-bold text-center my-4">Upload Furniture</h2>
                                 <DetailsUpload toProductUpload={this.getDetailsData} />
                                 <ImageUpload toProductUpload={this.getImageData} />
                                 <PaymentUpload toProductUpload={this.getPaymentData} />

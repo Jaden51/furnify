@@ -9,14 +9,14 @@ const Product = ({ data }) => {
 
     if (product) {
         productData = (
-            <div>
-                <h3> {product.title} </h3>
-                <figure className='figure'>
-                    <img alt='temp img' src={product.image} className='figure-img img-thumbnail' width='40%' height='40%'></img>
-                    <figcaption className='figure-caption'>{product.description}</figcaption>
-                </figure>
-                <p>{product.price}</p>
-                <h4>{product.status}</h4>
+            <div className='card' style={{ width: '25rem' }}>
+                <img alt='temp img' src={product.image} className='card-img-top' width='40%' height='40%'></img>
+                <div className='card-body'>
+                    <h4 className='card-title'>{product.title}</h4>
+                    <h6 className='card-title'>{product.price}</h6>
+                    <p className='card-text'>{product.description}</p>
+                    <h6 className='card-title'>{product.status}</h6>
+                </div>
             </div>
         )
     } else {
