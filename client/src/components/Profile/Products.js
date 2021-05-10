@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import { Button } from 'react-bootstrap';
 
 class Products extends Component {
     render() {
@@ -25,7 +24,7 @@ class Products extends Component {
 
         return (
             <div>
-                <h4>Products</h4>
+                <h4 className="h1-responsive font-weight-bold text-center my-4">Products</h4>
                 {profile.products.length === 0 ? (
                     <div>
                         <p>You currently have no products displayed on the site.</p>

@@ -7,7 +7,7 @@ class Products extends Component {
 
         return (
             <div>
-                <h4>Messages</h4>
+                <h4 className="h1-responsive font-weight-bold text-center my-4">Messages</h4>
                 {profile.messages.length === 0 ? (
                     <div>
                         <p>You currently have no messages.</p>

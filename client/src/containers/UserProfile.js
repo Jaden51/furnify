@@ -51,7 +51,7 @@ class UserProfile extends Component {
                 ) : (
                     <div>
                         <div>
-                            <h3>Hello, {auth.user.name}!</h3>
+                            <h2 className="h1-responsive font-weight-bold text-center my-4">Hello, {auth.user.name}!</h2>
                         </div>
                         <div className='container'>
                             <ProfileForm toUserProfile={this.getView} />

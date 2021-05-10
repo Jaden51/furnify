@@ -7,7 +7,7 @@ class Favourites extends Component {
 
         return (
             <div>
-                <h4>Favourites</h4>
+                <h4 className="h1-responsive font-weight-bold text-center my-4">Favourites</h4>
                 {profile.favourites.length === 0 ? (
                     <div>
                         <p>You currently have no favourites.</p>
