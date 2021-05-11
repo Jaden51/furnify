@@ -5,7 +5,7 @@ const Store = () => {
 
     return (
         <div className='container'>
-            <h1 className='h1-responsive font-weight-bold text-center my-4'>Store Page</h1>
+            <h2 className='h1-responsive font-weight-bold text-center my-4'>Store Page</h2>
             <Products />
         </div>
     )

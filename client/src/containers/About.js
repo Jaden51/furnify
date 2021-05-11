@@ -5,9 +5,9 @@ class About extends Component {
         return (
             <div className='container'>
                 <div>
-                    <h1 className='h1-responsive font-weight-bold text-center my-4'>
+                    <h2 className='h1-responsive font-weight-bold text-center my-4'>
                         About Us
-                    </h1>
+                    </h2>
                     <p>
                         We are an online furniture refurbishing store which allows consumers to sell us their old furniture. We take that old furniture, refurbish
                         it and than sell it.

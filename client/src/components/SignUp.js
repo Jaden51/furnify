@@ -63,51 +63,54 @@ class SignUp extends Component {
                 initialValues={this.state}
                 onSubmit={this.handleSubmit}
             >
-                <Form>
-                    <h2>Sign Up</h2>
-                    <h3>Create Your Account</h3>
-                    <Alert />
-                    <Field
-                        type='text'
-                        placeholder='Name'
-                        name='name'
-                        className='input name-input'
-                        onChange={this.handleChange}
-                        required
-                    /><br />
-                    <Field
-                        type='text'
-                        placeholder='Email Address'
-                        name='email'
-                        className='input name-input'
-                        onChange={this.handleChange}
-                        required
-                    /><br />
-                    <Field
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        className='input pass-input'
-                        onChange={this.handleChange}
-                        required
-                    /><br />
-                    <Field
-                        type='password'
-                        placeholder='Confirm Password'
-                        name='confirmPass'
-                        className='input confirm-input'
-                        onChange={this.handleChange}
-                        required
-                    /><br />
-                    <input
-                        type="submit"
-                        className="btn btn-primary"
-                        value="Register"
-                    />
-                    <p className="my-1">
-                        Already have an account? <Link to="/login">Sign In</Link>
-                    </p>
-                </Form>
+                <div className='card'>
+                    <article className='card-body mx-auto' style={{ maxWidth: '400px' }}>
+                        <h4 className='card-title mt-3 text-center'>Create Account</h4>
+                        <Form>
+                            <Alert />
+                            <Field
+                                type='text'
+                                placeholder='Name'
+                                name='name'
+                                className='input name-input'
+                                onChange={this.handleChange}
+                                required
+                            /><br />
+                            <Field
+                                type='text'
+                                placeholder='Email Address'
+                                name='email'
+                                className='input name-input'
+                                onChange={this.handleChange}
+                                required
+                            /><br />
+                            <Field
+                                type='password'
+                                placeholder='Password'
+                                name='password'
+                                className='input pass-input'
+                                onChange={this.handleChange}
+                                required
+                            /><br />
+                            <Field
+                                type='password'
+                                placeholder='Confirm Password'
+                                name='confirmPass'
+                                className='input confirm-input'
+                                onChange={this.handleChange}
+                                required
+                            /><br />
+                            <input
+                                type="submit"
+                                className="btn btn-primary"
+                                value="Register"
+                            />
+                            <p className="my-1">
+                                Already have an account? <Link to="/login">Sign In</Link>
+                            </p>
+                        </Form>
+                    </article>
+                </div>
             </Formik>
         )
     }

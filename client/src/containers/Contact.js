@@ -1,6 +1,52 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Contact extends Component {
+
+    state = {
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        status: 'submit'
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.setState({ status: "Sending" });
+
+        const { name, email, subject, message } = this.state;
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const body = JSON.stringify({ name, email, subject, message })
+
+        try {
+            axios.post('/api/email/contact', body, config);
+            alert('Email Sent');
+            this.setState({ name: '', email: '', subject: '', message: '', status: 'submit'});
+        } catch (err) {
+            alert(err);
+        }
+    }
+
+    handleChange = e => {
+        const field = e.target.id;
+        if (field === 'name') {
+            this.setState({ name: e.target.value });
+        } else if (field === 'email') {
+            this.setState({ email: e.target.value })
+        } else if (field === 'subject') {
+            this.setState({ subject: e.target.value });
+        } else {
+            this.setState({ message: e.target.value });
+        }
+    }
+
     render() {
         return (
             <section className='mb-4'>
@@ -12,19 +58,31 @@ class Contact extends Component {
 
                 <div className='row justify-content-center'>
                     <div className='col-md-9 mb-md-0 mb-5'>
-                        <form id='contact-form'>
+                        <form id='contact-form' onSubmit={this.handleSubmit.bind(this)} method='POST'>
                             <div className='row'>
 
                                 <div className='col-md-6'>
                                     <div className='md-form mb-0'>
-                                        <input type='text' id='name'className='form-control' />
+                                        <input
+                                            type='text'
+                                            id='name'
+                                            className='form-control'
+                                            value={this.state.name}
+                                            onChange={this.handleChange.bind(this)}
+                                            required />
                                         <label className=''>Your name</label>
                                     </div>
                                 </div>
 
                                 <div className='col-md-6'>
                                     <div className='md-form mb-0'>
-                                        <input type='text' id='email' name='email' className='form-control' />
+                                        <input type='text'
+                                            id='email'
+                                            name='email'
+                                            className='form-control'
+                                            value={this.state.email}
+                                            onChange={this.handleChange.bind(this)}
+                                            required />
                                         <label className=''>Your email</label>
                                     </div>
                                 </div>
@@ -33,7 +91,13 @@ class Contact extends Component {
                             <div className='row'>
                                 <div className='col-md-12'>
                                     <div className='md-form mb-0'>
-                                        <input type='text' id='subject' name='subject' className='form-control' />
+                                        <input type='text'
+                                            id='subject'
+                                            name='subject'
+                                            className='form-control'
+                                            value={this.state.subject}
+                                            onChange={this.handleChange.bind(this)}
+                                            required />
                                         <label className=''>Subject</label>
                                     </div>
                                 </div>
@@ -42,7 +106,15 @@ class Contact extends Component {
                             <div className='row'>
                                 <div className='col-md-12'>
                                     <div className='md-form'>
-                                        <textarea type='text' id='message' name='message' rows='2' className='form-control md-textarea'></textarea>
+                                        <textarea
+                                            type='text'
+                                            id='message'
+                                            rows='2'
+                                            className='form-control md-textarea'
+                                            value={this.state.message}
+                                            onChange={this.handleChange.bind(this)}
+                                            required>
+                                        </textarea>
                                         <label>Your message</label>
                                     </div>
                                 </div>
@@ -51,7 +123,7 @@ class Contact extends Component {
                             <div className='row'>
 
                                 <div className='text-center text-md-left col'>
-                                    <button className='btn btn-primary'>Send</button>
+                                    <button className='btn btn-primary' type='submit'>Send</button>
                                 </div>
 
                                 <div className='col'>
