@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ImageCarousel from '../components/ImageCarousel';
-import LandingPage from '../components/LandingPage';
+import ImageCarousel from '../components/Home/ImageCarousel';
+import LandingPage from '../components/Home/LandingPage';
 import About from './About';
 import Contact from './Contact';
 

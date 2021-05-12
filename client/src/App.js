@@ -12,6 +12,7 @@ import SignUp from './components/SignUp';
 import Login from './components/Login'
 import ProductUpload from './components/ProductUpload/ProductUpload';
 import Success from './components/ProductUpload/Success';
+import Footer from './components/Home/Footer';
 
 class App extends Component {
     render() {
@@ -29,6 +30,7 @@ class App extends Component {
                     <Route path='/login' exact component={Login} />
                     <Route path='/success' exact component={Success} />
                 </Switch>
+                <Footer />
             </div>
 
         );
