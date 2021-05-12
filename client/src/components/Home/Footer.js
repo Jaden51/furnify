@@ -8,20 +8,20 @@ const Footer = () => {
                     <span>Get connected with us</span>
                 </div>
                 <div>
-                    <a href="/" class="me-4 text-reset">
-                        <i class="fab fa-twitter"></i>
+                    <a href="/" className="me-4 text-reset">
+                        <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="/" class="me-4 text-reset">
-                        <i class="fab fa-google"></i>
+                    <a href="/" className="me-4 text-reset">
+                        <i className="fab fa-google"></i>
                     </a>
-                    <a href="/" class="me-4 text-reset">
-                        <i class="fab fa-instagram"></i>
+                    <a href="/" className="me-4 text-reset">
+                        <i className="fab fa-instagram"></i>
                     </a>
-                    <a href="/" class="me-4 text-reset">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="/" className="me-4 text-reset">
+                        <i className="fab fa-linkedin"></i>
                     </a>
-                    <a href="/" class="me-4 text-reset">
-                        <i class="fab fa-github"></i>
+                    <a href="/" className="me-4 text-reset">
+                        <i className="fab fa-github"></i>
                     </a>
                 </div>
             </section>

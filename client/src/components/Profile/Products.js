@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import * as actions from '../../store/actions/index';
 
 class Products extends Component {
-    render() {
 
+    refresh = () => {
+
+    }
+
+    render() {
+        
         const { profile } = this.props.profile;
 
         var products = profile.products.map((product, index) => {
@@ -18,6 +24,16 @@ class Products extends Component {
                     <td>{product.title}</td>
                     {product.price === 0 ? (<td>{product.paymentMethod}</td>) : (<td>${product.price}</td>)}
                     <td>{product.status}</td>
+                    <td>
+                        <button
+                            className='btn btn-secondary'
+                            onClick={e => {
+                                this.props.dispatch(actions.removeProduct(product._id))
+                                window.location.reload();
+                            }} >
+                            Remove Product
+                        </button>
+                    </td>
                 </tr>
             )
         })
@@ -46,6 +62,7 @@ class Products extends Component {
                                             <th scope='col'>Title</th>
                                             <th scope='col'>Price</th>
                                             <th scope='col'>Status</th>
+                                            <th scope='col'>Remove</th>
                                         </tr>
                                     </thead>
                                     <tbody>

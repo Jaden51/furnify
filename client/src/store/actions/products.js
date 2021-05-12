@@ -58,10 +58,22 @@ export const addProduct = (
     }
 }
 
-export const removeProduct = ({ id } = {}) => {
-    return {
-        type: actionTypes.REMOVE_PRODCUT,
-        id
+export const removeProduct = id => async dispatch => {
+    try {
+        await axios.delete(`/api/profile/products/${id}`)
+
+        dispatch({
+            type: actionTypes.REMOVE_PRODUCT,
+            payload: { id }
+        });
+
+        dispatch(setAlert('Post Removed', 'success'))
+    } catch (err) {
+        console.log(err);
+        dispatch({
+            type: actionTypes.PRODUCT_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
     }
 }
 

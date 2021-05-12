@@ -18,7 +18,7 @@ class ProductUpload extends Component {
             errors: {},
             fields: {
                 title: '',
-                category: 'Chair',
+                category: '',
                 productType: 'Non-Refurbished',
                 description: '',
                 imageLink: '',

@@ -1,18 +1,21 @@
 import * as actionTypes from '../actions/actionTypes';
 
-const INTIAL_STATE = [];
+const INTIAL_STATE = {
+    products: []
+}
 
 const reducer = (state = INTIAL_STATE, action) => {
     switch (action.type) {
         case actionTypes.ADD_PRODUCT:
-            return [
+            return {
                 ...state,
-                action.product
-            ];
-        case actionTypes.REMOVE_PRODCUT:
-            return state.filter(({ id }) => {
-                return id !== action.id;
-            });
+                products: [action.product, ...state.products]
+            }
+        case actionTypes.REMOVE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter(product => product._id !== action.payload)
+              };
         case actionTypes.EDIT_PRODUCT:
             return state.map((product) => {
                 if (product.id === action.id) {

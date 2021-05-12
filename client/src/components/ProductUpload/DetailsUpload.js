@@ -10,7 +10,7 @@ class DetailsUpload extends Component {
         this.state = {
             fields: {
                 title: '',
-                category: 'chair',
+                category: '',
                 productType: 'Non-Refurbished',
                 description: '',
             }
