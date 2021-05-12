@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class About extends Component {
     render() {
         return (
-            <div className='container'>
+            <div className='container' style={{marginBottom: '7rem'}}>
                 <div>
                     <h2 className='h1-responsive font-weight-bold text-center my-4'>
                         About Us

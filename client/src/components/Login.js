@@ -51,35 +51,44 @@ class Login extends Component {
                 initialValues={this.state}
                 onSubmit={this.handleSubmit}
             >
-                <Form className='container'>
-                    <h2>Sign In</h2>
-                    <h3>Sign Into Your Account</h3>
-                    <Alert />
-                    <Field
-                        type='text'
-                        placeholder='Email Address'
-                        name='email'
-                        className='input email-input'
-                        required
-                        onChange={this.handleChange}
-                    /><br />
-                    <Field
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        className='input pass-input'
-                        required
-                        onChange={this.handleChange}
-                    /><br />
-                    <input
-                        type='submit'
-                        className='btn'
-                        value='Login'
-                    />
-                    <p>
-                        Don't have an account? <Link to='/signup'>Sign Up</Link>
-                    </p>
-                </Form>
+                <div>
+                    <article className='card-body mx-auto' style={{ maxWidth: '400px' }}>
+                    <h2 className='h1-responsive font-weight-bold text-center my-4'>Sign In</h2>
+                        <Form>
+                            <Alert />
+                            <div className='form-group input-group'>
+                                <Field
+                                    type='text'
+                                    placeholder='Email Address'
+                                    name='email'
+                                    className='form-control'
+                                    required
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className='form-group input-group'>
+                                <Field
+                                    type='password'
+                                    placeholder='Password'
+                                    name='password'
+                                    className='form-control'
+                                    required
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <input
+                                    type='submit'
+                                    className="btn btn-primary btn-block"
+                                    value='Login'
+                                />
+                            </div>
+                            <p className='text-center'>
+                                Don't have an account? <Link to='/signup'>Sign Up</Link>
+                            </p>
+                        </Form>
+                    </article>
+                </div>
             </Formik>
         )
     }

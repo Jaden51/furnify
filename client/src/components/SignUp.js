@@ -63,49 +63,59 @@ class SignUp extends Component {
                 initialValues={this.state}
                 onSubmit={this.handleSubmit}
             >
-                <div className='card'>
+                <div>
                     <article className='card-body mx-auto' style={{ maxWidth: '400px' }}>
-                        <h4 className='card-title mt-3 text-center'>Create Account</h4>
+                    <h2 className='h1-responsive font-weight-bold text-center my-4'>Create Account</h2>
                         <Form>
                             <Alert />
-                            <Field
-                                type='text'
-                                placeholder='Name'
-                                name='name'
-                                className='input name-input'
-                                onChange={this.handleChange}
-                                required
-                            /><br />
-                            <Field
-                                type='text'
-                                placeholder='Email Address'
-                                name='email'
-                                className='input name-input'
-                                onChange={this.handleChange}
-                                required
-                            /><br />
-                            <Field
-                                type='password'
-                                placeholder='Password'
-                                name='password'
-                                className='input pass-input'
-                                onChange={this.handleChange}
-                                required
-                            /><br />
-                            <Field
-                                type='password'
-                                placeholder='Confirm Password'
-                                name='confirmPass'
-                                className='input confirm-input'
-                                onChange={this.handleChange}
-                                required
-                            /><br />
-                            <input
-                                type="submit"
-                                className="btn btn-primary"
-                                value="Register"
-                            />
-                            <p className="my-1">
+                            <div className='form-group input-group'>
+                                <Field
+                                    type='text'
+                                    placeholder='Full Name'
+                                    name='name'
+                                    className='form-control'
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='form-group input-group'>
+                                <Field
+                                    type='text'
+                                    placeholder='Email Address'
+                                    name='email'
+                                    className='form-control'
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='form-group input-group'>
+                                <Field
+                                    type='password'
+                                    placeholder='Password'
+                                    name='password'
+                                    className='form-control'
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='form-group input-group'>
+                                <Field
+                                    type='password'
+                                    placeholder='Confirm Password'
+                                    name='confirmPass'
+                                    className='form-control'
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <input
+                                    type="submit"
+                                    className="btn btn-primary btn-block"
+                                    value="Create Account"
+                                />
+                            </div>
+                            <p className="text-center">
                                 Already have an account? <Link to="/login">Sign In</Link>
                             </p>
                         </Form>

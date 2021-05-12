@@ -83,7 +83,6 @@ class ProductUpload extends Component {
     }
 
     submitProduct = () => {
-        console.log('submit')
         const {
             title, category, productType, description,
             imageLink, location, price, paymentMethod,

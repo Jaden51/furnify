@@ -27,8 +27,8 @@ class Contact extends Component {
 
         try {
             axios.post('/api/email/contact', body, config);
-            alert('Email Sent');
-            this.setState({ name: '', email: '', subject: '', message: '', status: 'submit'});
+            alert('Your email has been received.');
+            this.setState({ name: '', email: '', subject: '', message: '', status: 'submit' });
         } catch (err) {
             alert(err);
         }
