@@ -6,7 +6,7 @@ class About extends Component {
             <div className='container' style={{marginBottom: '7rem'}}>
                 <div>
                     <h2 className='h1-responsive font-weight-bold text-center my-4'>
-                        About Us test if pushing updates deployment
+                        About Us
                     </h2>
                     <p>
                         We are an online furniture refurbishing store which allows consumers to sell us their old furniture. We take that old furniture, refurbish
