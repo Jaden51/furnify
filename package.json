@@ -7,7 +7,8 @@
         "start": "node server",
         "server": "nodemon server",
         "client": "npm start --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     },
     "author": "Jaden Hums",
     "dependencies": {
@@ -20,6 +21,7 @@
         "express": "^4.17.1",
         "express-validator": "^6.4.0",
         "gravatar": "^1.8.0",
+        "heroku": "^7.53.1",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.9.26",
         "nodemailer": "^6.6.0",

@@ -6,10 +6,6 @@ import * as actions from '../../store/actions/index';
 
 class Products extends Component {
 
-    refresh = () => {
-
-    }
-
     render() {
         
         const { profile } = this.props.profile;

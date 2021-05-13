@@ -18,7 +18,7 @@ class ProductUpload extends Component {
             errors: {},
             fields: {
                 title: '',
-                category: '',
+                category: 'Sofas and Armchairs',
                 productType: 'Non-Refurbished',
                 description: '',
                 imageLink: '',
