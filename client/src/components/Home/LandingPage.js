@@ -17,7 +17,7 @@ class LandingPage extends Component {
                 {!loading && !isAuthenticated ? (
                     <div>
                         <div>
-                            <h4 className='h2-responsive font-weight-bold my-4'>Furnify</h4>
+                            <h4 className='h2-responsive font-weight-bold my-4'>Furnify test</h4>
                             <h1 className='h4-responsive font-weight-bold my-4'>We buy, refurbish and resell your furniture.</h1>
                             <div className='d-grid gap-2 d-md-block'>
                                 <button className='btn btn-outline-secondary' style={{ marginRight: '1rem', marginBottom: '1rem' }}>
