@@ -14,11 +14,11 @@ Customers can make an account and upload furniture to the website. From there, t
 
 Home page of the website
 
-![home page](client\src\assets\furnify2.png)
+![furnify2](https://user-images.githubusercontent.com/49542833/118168604-0872cc80-b3f6-11eb-943d-2c93633f6856.png)
 
 Upload furniture to the website
 
-![upload page](client\src\assets\upload.png)
+![upload](https://user-images.githubusercontent.com/49542833/118168559-f98c1a00-b3f5-11eb-8f9a-9aaaf7c1cfb5.png)
 
 ## Technologies
 
