@@ -22,6 +22,7 @@ class About extends Component {
                         a business who wants to work with us or a customer with furniture to sell.
                     </p>
                 </div>
+                <div></div>
             </div>
         )
     }
