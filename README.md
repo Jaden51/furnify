@@ -25,7 +25,7 @@ Upload furniture to the website
 - **React** and **Redux** for client side front end
 - **Node.js** for the web server
 - **MongoDB** for the database
-- **Express.js** for the web ramework
+- **Express.js** for the web framework
 
 ## Technical Description
 
